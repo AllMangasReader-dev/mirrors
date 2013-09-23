@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+# Run this script to download the  
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  TARGET="$(readlink "$SOURCE")"
+  if [[ $SOURCE == /* ]]; then
+    echo "SOURCE '$SOURCE' is an absolute symlink to '$TARGET'"
+    SOURCE="$TARGET"
+  else
+    DIR="$( dirname "$SOURCE" )"
+    echo "SOURCE '$SOURCE' is a relative symlink to '$TARGET' (relative to '$DIR')"
+    SOURCE="$DIR/$TARGET" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  fi
+done
+echo "SOURCE is '$SOURCE'"
+RDIR="$( dirname "$SOURCE" )"
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+if [ "$DIR" != "$RDIR" ]; then
+  echo "DIR '$RDIR' resolves to '$DIR'"
+fi
+echo "DIR is '$DIR'"
+cd $DIR
+echo "The download has started. Please wait..."
+wget -b -nH --cut-dirs=3 -r --no-parent --reject "index.html*" https://ssl10.ovh.net/~allmanga/community/latest_v2/
+echo "Download finished. Please use 'git commit -a' to commit the changes, then 'commit push' to publish the changes."
+echo "We will now add the new files, please make sure you have installed git"
+git add *
