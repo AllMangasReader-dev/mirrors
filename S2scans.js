@@ -92,15 +92,27 @@ var S2scans = {
   doSomethingBeforeWritingScans : function (doc, curUrl) {
     if (typeof doc.createElement == 'function') {
       script = doc.createElement('script');
-      script.innerText = "$(document).unbind('keydown');";
+      script.type = "text/rocketscript";
+      script.onload = OnceLoaded;
+      script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).unbind('keydown');});";
+      script.innerText += "function OnceLoaded() {changePage = function(){};$(document).ready(function(){$(document).unbind('keydown');});}"
       doc.body.appendChild(script);
+      function OnceLoaded() {
+           changePage = function(){};
+           $(document).ready(function(){$(document).unbind('keydown');});
+      }
     }
-    $('#page', doc).css("max-width", "95%");
+    $("#page", doc).css("max-width", "none");
+	  $("#page", doc).css("width", "100%");
     $('#page', doc).css("overflow", "visible");
     $("#page", doc).before($("<div class='navAMR'></div>"));
     $("#page", doc).after($("<div class='navAMR'></div>"));
     $("#page", doc).empty();
     $(".navAMR").css("text-align", "center");
+    $(window).resize(function() {
+  	  $("#page", doc).css("max-width", "none");
+  	  $("#page", doc).css("width", "100%");
+    });
   },
   nextChapterUrl : function (select, doc, curUrl) {
     if ($(select).children("option:selected").prev().size() != 0) {

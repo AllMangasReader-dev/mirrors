@@ -10,7 +10,7 @@ var EJapanzai = {
     getMangaList: function (search, callback) {
         "use strict";
         $.ajax({
-            url: "http://ecchi.japanzai.com/reader/search/",
+            url: "http://ecchi.japanzai.com/search/",
             type: 'POST',
             data: {
                 'search': search
@@ -23,7 +23,7 @@ var EJapanzai = {
                 var div = document.createElement("div"),
                     res = [];
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
-                $('.list > .group > .title > a', div).each(function (index) {
+                $('.list .group .title a', div).each(function (index) {
                     res[res.length] = [$(this).attr('title'), $(this).attr('href')];
                 });
                 callback("Ecchi Japanzai", res);
@@ -34,20 +34,15 @@ var EJapanzai = {
         "use strict";
         $.ajax({
             url: urlManga,
-            type: 'POST',
-            data: {
-                'adult': true
-            },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
-                xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
             },
             success: function (objResponse) {
                 var div = document.createElement("div"),
                     res = [];
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
-                $('.list > .element > .title > a', div).each(function (index) {
+                $('.list .title a', div).each(function (index) {
                     res[res.length] = [$(this).attr('title'), $(this).attr('href')];
                 });
                 callback(res, obj);
@@ -75,26 +70,28 @@ var EJapanzai = {
             async: false,
             success: function (response) {
                 var div = document.createElement("div"),
-                    sbraces1,
-                    txt,
                     re1,
-                    re2,
                     i,
+                    imgstring,
+                    imgarray,
+                    re2,
                     p,
                     m,
-                    pages;
+                    txt,
+                    sbraces1;
                 div.innerHTML = response;
-                txt = $(div).html();
+                txt = $("script:eq(6)").html();
                 re1 = '.*?'; // Non-greedy match on filler
-                re2 = '(\\[.*?\\])'; // Square Braces 1
+                re2 = '(\[.*?\])'; // Square Braces 1
                 p = new RegExp(re1 + re2, ["i"]);
                 m = p.exec(txt);
                 if (m !== null) {
                     sbraces1 = m[1];
-                    pages = JSON.parse(sbraces1.replace(/</, "<"));
-                }
-                for (i = 0; i < pages.length; i += 1) {
-                    res.push(pages[i].url);
+                    imgstring = sbraces1.replace(/</, "<");
+                    imgarray = JSON.parse(imgstring);
+                    for (i = 0; i < imgarray.length; i += 1) {
+                        res.push(imgarray[i].url);
+                    }
                 }
             }
         });
@@ -114,7 +111,7 @@ var EJapanzai = {
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
         "use strict";
-        return (curUrl.search('ecchi.japanzai.com/reader/read/') > -1);
+        return (curUrl.search('ecchi.japanzai.com/read/') > -1);
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         "use strict";
