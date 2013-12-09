@@ -5,7 +5,7 @@ var GaoSubs = {
     languages: "en",
     isMe: function (url) {
         "use strict";
-        return (url.search(/(gao-subs|gaomanga).com/g) !== -1);
+        return (url.search(/(gao-subs|gaomanga).com/g) > -1);
     },
     getMangaList: function (search, callback) {
         "use strict";
@@ -20,7 +20,7 @@ var GaoSubs = {
                     res = [];
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 $('.mangaDisplay', div).each(function (index) {
-                    res.push([$('.mangaNfo', this).text(), 'http://www.gao-subs.com/' + $('a', this).attr('href').split('/')[3] + '/']);
+                    res.push([$('.mangaNfo', this).text(), 'http://www.gao-subs.com' + $('a', this).attr('href')]);
                 });
                 callback("Gao-subs", res);
             }
@@ -50,7 +50,7 @@ var GaoSubs = {
         var name = $('#searchBar a:last', doc).text(),
             info = $('.chapterNavigator select option:selected', doc).attr('value').split(';'),
             currentChapter = $('.chapterNavigator select option:selected', doc).text(),
-            currentMangaURL = 'http://www.' + curUrl.indexOf('subs') !== -1 ? 'gao-subs.com' : 'gaomanga.com' + $('#searchBar a:last', doc).attr('href'),
+            currentMangaURL = 'http://www.' + (curUrl.indexOf('subs') !== -1 ? 'gao-subs.com' : 'gaomanga.com') + $('#searchBar a:last', doc).attr('href'),
             currentChapterURL = currentMangaURL + 'volume_' + info[0] + '/chapter_' + info[1] + '/';
         callback({
             "name": name,
@@ -95,9 +95,9 @@ var GaoSubs = {
         }
         $('.chapterTitle', doc).css('min-width', '');
         $('.chapterTitle', doc).css('width', '100%');
-        $('.pageNavigator', doc).remove();
-        $('#midManga', doc).remove();
-        $('.note', doc).remove();
+        $('.pageNavigator', doc).hide();
+        $('#midManga', doc).hide();
+        $('.note', doc).hide();
         $("#belowTitle", doc).prepend($("<div class='navAMR'></div>"));
         $("#belowTitle", doc).prepend($("<div class='scanAMR'></div>"));
         $("#belowTitle", doc).prepend($("<div class='navAMR'></div>"));
@@ -105,14 +105,14 @@ var GaoSubs = {
     },
     nextChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().size() > 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().size() > 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;
@@ -127,6 +127,11 @@ var GaoSubs = {
     },
     getMangaSelectFromPage: function (doc, curUrl) {
         "use strict";
+        var chpinfo = [];
+        $("#select_ch option").each(function () {
+            $(this).val().split(';')
+            chpinfo.push($(this).val().split(';'))
+        });
         return null;
     },
     doAfterMangaLoaded: function (doc, curUrl) {

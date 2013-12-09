@@ -1,0 +1,980 @@
+--2013-12-09 17:59:35--  https://ssl10.ovh.net/~allmanga/community/latest_v2/
+Resolving ssl10.ovh.net (ssl10.ovh.net)... 2001:41d0:1:1b00:213:186:33:19, 213.186.33.19
+Connecting to ssl10.ovh.net (ssl10.ovh.net)|2001:41d0:1:1b00:213:186:33:19|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+     0K ..........                                             24.3K=0.4s
+
+2013-12-09 17:59:38 (24.3 KB/s) - ‘index.html’ saved [10934]
+
+Loading robots.txt; please ignore errors.
+--2013-12-09 17:59:38--  https://ssl10.ovh.net/robots.txt
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 404 Not Found
+2013-12-09 17:59:39 ERROR 404: Not Found.
+
+Removing index.html since it should be rejected.
+
+--2013-12-09 17:59:39--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=N;O=D
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=N;O=D’
+
+     0K ..........                                             43.5K=0.2s
+
+2013-12-09 17:59:39 (43.5 KB/s) - ‘index.html?C=N;O=D’ saved [10934]
+
+Removing index.html?C=N;O=D since it should be rejected.
+
+--2013-12-09 17:59:39--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=M;O=A
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=M;O=A’
+
+     0K ..........                                             40.0K=0.3s
+
+2013-12-09 17:59:40 (40.0 KB/s) - ‘index.html?C=M;O=A’ saved [10934]
+
+Removing index.html?C=M;O=A since it should be rejected.
+
+--2013-12-09 17:59:40--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=S;O=A
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=S;O=A’
+
+     0K ..........                                             50.3K=0.2s
+
+2013-12-09 17:59:40 (50.3 KB/s) - ‘index.html?C=S;O=A’ saved [10934]
+
+Removing index.html?C=S;O=A since it should be rejected.
+
+--2013-12-09 17:59:40--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=D;O=A
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=D;O=A’
+
+     0K ..........                                             14.4K=0.7s
+
+2013-12-09 17:59:41 (14.4 KB/s) - ‘index.html?C=D;O=A’ saved [10934]
+
+Removing index.html?C=D;O=A since it should be rejected.
+
+--2013-12-09 17:59:41--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AdultManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10465 (10K) [application/javascript]
+Saving to: ‘AdultManga.js’
+
+     0K ..........                                            100% 5.93K=1.7s
+
+2013-12-09 17:59:43 (5.93 KB/s) - ‘AdultManga.js’ saved [10465/10465]
+
+--2013-12-09 17:59:43--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AkumaScan.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4850 (4.7K) [application/javascript]
+Saving to: ‘AkumaScan.js’
+
+     0K ....                                                  100% 7.51K=0.6s
+
+2013-12-09 17:59:44 (7.51 KB/s) - ‘AkumaScan.js’ saved [4850/4850]
+
+--2013-12-09 17:59:44--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AnarchyScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4570 (4.5K) [application/javascript]
+Saving to: ‘AnarchyScans.js’
+
+     0K ....                                                  100% 16.0K=0.3s
+
+2013-12-09 17:59:45 (16.0 KB/s) - ‘AnarchyScans.js’ saved [4570/4570]
+
+--2013-12-09 17:59:45--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AngelScanlator.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 8006 (7.8K) [application/javascript]
+Saving to: ‘AngelScanlator.js’
+
+     0K .......                                               100% 11.9K=0.7s
+
+2013-12-09 17:59:46 (11.9 KB/s) - ‘AngelScanlator.js’ saved [8006/8006]
+
+--2013-12-09 17:59:46--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AnimeA.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4369 (4.3K) [application/javascript]
+Saving to: ‘AnimeA.js’
+
+     0K ....                                                  100% 2.79K=1.5s
+
+2013-12-09 17:59:47 (2.79 KB/s) - ‘AnimeA.js’ saved [4369/4369]
+
+--2013-12-09 17:59:47--  https://ssl10.ovh.net/~allmanga/community/latest_v2/AnimeStory.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10168 (9.9K) [application/javascript]
+Saving to: ‘AnimeStory.js’
+
+     0K .........                                             100% 12.3K=0.8s
+
+2013-12-09 17:59:48 (12.3 KB/s) - ‘AnimeStory.js’ saved [10168/10168]
+
+--2013-12-09 17:59:48--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Animexis.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10137 (9.9K) [application/javascript]
+Saving to: ‘Animexis.js’
+
+     0K .........                                             100% 22.0K=0.4s
+
+2013-12-09 17:59:49 (22.0 KB/s) - ‘Animexis.js’ saved [10137/10137]
+
+--2013-12-09 17:59:49--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Animextremist.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 12548 (12K) [application/javascript]
+Saving to: ‘Animextremist.js’
+
+     0K .......... ..                                         100% 19.6K=0.6s
+
+2013-12-09 17:59:50 (19.6 KB/s) - ‘Animextremist.js’ saved [12548/12548]
+
+--2013-12-09 17:59:50--  https://ssl10.ovh.net/~allmanga/community/latest_v2/BacaManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10197 (10.0K) [application/javascript]
+Saving to: ‘BacaManga.js’
+
+     0K .........                                             100% 23.9K=0.4s
+
+2013-12-09 17:59:51 (23.9 KB/s) - ‘BacaManga.js’ saved [10197/10197]
+
+--2013-12-09 17:59:51--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Batoto.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 8853 (8.6K) [application/javascript]
+Saving to: ‘Batoto.js’
+
+     0K ........                                              100% 34.3K=0.3s
+
+2013-12-09 17:59:51 (34.3 KB/s) - ‘Batoto.js’ saved [8853/8853]
+
+--2013-12-09 17:59:51--  https://ssl10.ovh.net/~allmanga/community/latest_v2/CXCScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10416 (10K) [application/javascript]
+Saving to: ‘CXCScans.js’
+
+     0K ..........                                            100% 38.3K=0.3s
+
+2013-12-09 17:59:52 (38.3 KB/s) - ‘CXCScans.js’ saved [10416/10416]
+
+--2013-12-09 17:59:52--  https://ssl10.ovh.net/~allmanga/community/latest_v2/CentralDeMangas.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 8215 (8.0K) [application/javascript]
+Saving to: ‘CentralDeMangas.js’
+
+     0K ........                                              100% 32.6K=0.2s
+
+2013-12-09 17:59:52 (32.6 KB/s) - ‘CentralDeMangas.js’ saved [8215/8215]
+
+--2013-12-09 17:59:52--  https://ssl10.ovh.net/~allmanga/community/latest_v2/CityManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10407 (10K) [application/javascript]
+Saving to: ‘CityManga.js’
+
+     0K ..........                                            100% 39.5K=0.3s
+
+2013-12-09 17:59:53 (39.5 KB/s) - ‘CityManga.js’ saved [10407/10407]
+
+--2013-12-09 17:59:53--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ClockworkLies.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10162 (9.9K) [application/javascript]
+Saving to: ‘ClockworkLies.js’
+
+     0K .........                                             100% 41.5K=0.2s
+
+2013-12-09 17:59:53 (41.5 KB/s) - ‘ClockworkLies.js’ saved [10162/10162]
+
+--2013-12-09 17:59:53--  https://ssl10.ovh.net/~allmanga/community/latest_v2/DragonFlyScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4655 (4.5K) [application/javascript]
+Saving to: ‘DragonFlyScans.js’
+
+     0K ....                                                  100%  191K=0.02s
+
+2013-12-09 17:59:53 (191 KB/s) - ‘DragonFlyScans.js’ saved [4655/4655]
+
+--2013-12-09 17:59:53--  https://ssl10.ovh.net/~allmanga/community/latest_v2/DynastyScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5171 (5.0K) [application/javascript]
+Saving to: ‘DynastyScans.js’
+
+     0K .....                                                 100%  162K=0.03s
+
+2013-12-09 17:59:54 (162 KB/s) - ‘DynastyScans.js’ saved [5171/5171]
+
+--2013-12-09 17:59:54--  https://ssl10.ovh.net/~allmanga/community/latest_v2/EJapanzai.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 6184 (6.0K) [application/javascript]
+Saving to: ‘EJapanzai.js’
+
+     0K ......                                                100%  172K=0.04s
+
+2013-12-09 17:59:54 (172 KB/s) - ‘EJapanzai.js’ saved [6184/6184]
+
+--2013-12-09 17:59:54--  https://ssl10.ovh.net/~allmanga/community/latest_v2/EasyGoing.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5183 (5.1K) [application/javascript]
+Saving to: ‘EasyGoing.js’
+
+     0K .....                                                 100%  125K=0.04s
+
+2013-12-09 17:59:54 (125 KB/s) - ‘EasyGoing.js’ saved [5183/5183]
+
+--2013-12-09 17:59:54--  https://ssl10.ovh.net/~allmanga/community/latest_v2/EatManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10884 (11K) [application/javascript]
+Saving to: ‘EatManga.js’
+
+     0K ..........                                            100% 9.19K=1.2s
+
+2013-12-09 17:59:56 (9.19 KB/s) - ‘EatManga.js’ saved [10884/10884]
+
+--2013-12-09 17:59:56--  https://ssl10.ovh.net/~allmanga/community/latest_v2/EvilFlowers.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4817 (4.7K) [application/javascript]
+Saving to: ‘EvilFlowers.js’
+
+     0K ....                                                  100% 2.88K=1.6s
+
+2013-12-09 17:59:58 (2.88 KB/s) - ‘EvilFlowers.js’ saved [4817/4817]
+
+--2013-12-09 17:59:58--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ExtrasScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5309 (5.2K) [application/javascript]
+Saving to: ‘ExtrasScans.js’
+
+     0K .....                                                 100% 7.45K=0.7s
+
+2013-12-09 17:59:58 (7.45 KB/s) - ‘ExtrasScans.js’ saved [5309/5309]
+
+--2013-12-09 17:59:58--  https://ssl10.ovh.net/~allmanga/community/latest_v2/FTHScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4916 (4.8K) [application/javascript]
+Saving to: ‘FTHScans.js’
+
+     0K ....                                                  100% 7.46K=0.6s
+
+2013-12-09 17:59:59 (7.46 KB/s) - ‘FTHScans.js’ saved [4916/4916]
+
+--2013-12-09 17:59:59--  https://ssl10.ovh.net/~allmanga/community/latest_v2/FoolRulez.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4813 (4.7K) [application/javascript]
+Saving to: ‘FoolRulez.js’
+
+     0K ....                                                  100% 11.1K=0.4s
+
+2013-12-09 18:00:00 (11.1 KB/s) - ‘FoolRulez.js’ saved [4813/4813]
+
+--2013-12-09 18:00:00--  https://ssl10.ovh.net/~allmanga/community/latest_v2/GaoSubs.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5927 (5.8K) [application/javascript]
+Saving to: ‘GaoSubs.js’
+
+     0K .....                                                 100% 13.2K=0.4s
+
+2013-12-09 18:00:01 (13.2 KB/s) - ‘GaoSubs.js’ saved [5927/5927]
+
+--2013-12-09 18:00:01--  https://ssl10.ovh.net/~allmanga/community/latest_v2/GodHandScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7538 (7.4K) [application/javascript]
+Saving to: ‘GodHandScans.js’
+
+     0K .......                                               100% 16.0K=0.5s
+
+2013-12-09 18:00:01 (16.0 KB/s) - ‘GodHandScans.js’ saved [7538/7538]
+
+--2013-12-09 18:00:01--  https://ssl10.ovh.net/~allmanga/community/latest_v2/GoodManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5248 (5.1K) [application/javascript]
+Saving to: ‘GoodManga.js’
+
+     0K .....                                                 100% 20.0K=0.3s
+
+2013-12-09 18:00:02 (20.0 KB/s) - ‘GoodManga.js’ saved [5248/5248]
+
+--2013-12-09 18:00:02--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Haruka.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7384 (7.2K) [application/javascript]
+Saving to: ‘Haruka.js’
+
+     0K .......                                               100% 23.6K=0.3s
+
+2013-12-09 18:00:02 (23.6 KB/s) - ‘Haruka.js’ saved [7384/7384]
+
+--2013-12-09 18:00:02--  https://ssl10.ovh.net/~allmanga/community/latest_v2/HimawariMangas.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9254 (9.0K) [application/javascript]
+Saving to: ‘HimawariMangas.js’
+
+     0K .........                                             100% 30.9K=0.3s
+
+2013-12-09 18:00:03 (30.9 KB/s) - ‘HimawariMangas.js’ saved [9254/9254]
+
+--2013-12-09 18:00:03--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Imangascans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5491 (5.4K) [application/javascript]
+Saving to: ‘Imangascans.js’
+
+     0K .....                                                 100%  174K=0.03s
+
+2013-12-09 18:00:03 (174 KB/s) - ‘Imangascans.js’ saved [5491/5491]
+
+--2013-12-09 18:00:03--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ImperialScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 8927 (8.7K) [application/javascript]
+Saving to: ‘ImperialScans.js’
+
+     0K ........                                              100% 35.5K=0.2s
+
+2013-12-09 18:00:04 (35.5 KB/s) - ‘ImperialScans.js’ saved [8927/8927]
+
+--2013-12-09 18:00:04--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ItaScan.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10316 (10K) [application/javascript]
+Saving to: ‘ItaScan.js’
+
+     0K ..........                                            100% 36.1K=0.3s
+
+2013-12-09 18:00:05 (36.1 KB/s) - ‘ItaScan.js’ saved [10316/10316]
+
+--2013-12-09 18:00:05--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Japanzai.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 6074 (5.9K) [application/javascript]
+Saving to: ‘Japanzai.js’
+
+     0K .....                                                 100% 12.4K=0.5s
+
+2013-12-09 18:00:06 (12.4 KB/s) - ‘Japanzai.js’ saved [6074/6074]
+
+--2013-12-09 18:00:06--  https://ssl10.ovh.net/~allmanga/community/latest_v2/KawaiiScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5312 (5.2K) [application/javascript]
+Saving to: ‘KawaiiScans.js’
+
+     0K .....                                                 100% 24.3K=0.2s
+
+2013-12-09 18:00:06 (24.3 KB/s) - ‘KawaiiScans.js’ saved [5312/5312]
+
+--2013-12-09 18:00:06--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MCReborn.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10125 (9.9K) [application/javascript]
+Saving to: ‘MCReborn.js’
+
+     0K .........                                             100% 36.9K=0.3s
+
+2013-12-09 18:00:07 (36.9 KB/s) - ‘MCReborn.js’ saved [10125/10125]
+
+--2013-12-09 18:00:07--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Manga2u.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 6116 (6.0K) [application/javascript]
+Saving to: ‘Manga2u.js’
+
+     0K .....                                                 100% 27.8K=0.2s
+
+2013-12-09 18:00:07 (27.8 KB/s) - ‘Manga2u.js’ saved [6116/6116]
+
+--2013-12-09 18:00:07--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Manga24.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 11857 (12K) [application/javascript]
+Saving to: ‘Manga24.js’
+
+     0K .......... .                                          100% 26.6K=0.4s
+
+2013-12-09 18:00:08 (26.6 KB/s) - ‘Manga24.js’ saved [11857/11857]
+
+--2013-12-09 18:00:08--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaAccess.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9820 (9.6K) [application/javascript]
+Saving to: ‘MangaAccess.js’
+
+     0K .........                                             100% 4.54K=2.1s
+
+2013-12-09 18:00:10 (4.54 KB/s) - ‘MangaAccess.js’ saved [9820/9820]
+
+--2013-12-09 18:00:10--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaAr.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5424 (5.3K) [application/javascript]
+Saving to: ‘MangaAr.js’
+
+     0K .....                                                 100% 23.1K=0.2s
+
+2013-12-09 18:00:11 (23.1 KB/s) - ‘MangaAr.js’ saved [5424/5424]
+
+--2013-12-09 18:00:11--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaChapter.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7487 (7.3K) [application/javascript]
+Saving to: ‘MangaChapter.js’
+
+     0K .......                                               100% 32.6K=0.2s
+
+2013-12-09 18:00:11 (32.6 KB/s) - ‘MangaChapter.js’ saved [7487/7487]
+
+--2013-12-09 18:00:11--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaEden_en.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10355 (10K) [application/javascript]
+Saving to: ‘MangaEden_en.js’
+
+     0K ..........                                            100% 23.2K=0.4s
+
+2013-12-09 18:00:12 (23.2 KB/s) - ‘MangaEden_en.js’ saved [10355/10355]
+
+--2013-12-09 18:00:12--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaEden_it.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10355 (10K) [application/javascript]
+Saving to: ‘MangaEden_it.js’
+
+     0K ..........                                            100% 23.6K=0.4s
+
+2013-12-09 18:00:13 (23.6 KB/s) - ‘MangaEden_it.js’ saved [10355/10355]
+
+--2013-12-09 18:00:13--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaExceed.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 3463 (3.4K) [application/javascript]
+Saving to: ‘MangaExceed.js’
+
+     0K ...                                                   100%  189K=0.02s
+
+2013-12-09 18:00:13 (189 KB/s) - ‘MangaExceed.js’ saved [3463/3463]
+
+--2013-12-09 18:00:13--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaFox.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 6092 (5.9K) [application/javascript]
+Saving to: ‘MangaFox.js’
+
+     0K .....                                                 100% 27.1K=0.2s
+
+2013-12-09 18:00:13 (27.1 KB/s) - ‘MangaFox.js’ saved [6092/6092]
+
+--2013-12-09 18:00:13--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaHead_en.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10989 (11K) [application/javascript]
+Saving to: ‘MangaHead_en.js’
+
+     0K ..........                                            100% 36.4K=0.3s
+
+2013-12-09 18:00:14 (36.4 KB/s) - ‘MangaHead_en.js’ saved [10989/10989]
+
+--2013-12-09 18:00:14--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaHead_raw.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10982 (11K) [application/javascript]
+Saving to: ‘MangaHead_raw.js’
+
+     0K ..........                                            100% 37.4K=0.3s
+
+2013-12-09 18:00:14 (37.4 KB/s) - ‘MangaHead_raw.js’ saved [10982/10982]
+
+--2013-12-09 18:00:14--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaHere.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9882 (9.7K) [application/javascript]
+Saving to: ‘MangaHere.js’
+
+     0K .........                                             100% 39.1K=0.2s
+
+2013-12-09 18:00:15 (39.1 KB/s) - ‘MangaHere.js’ saved [9882/9882]
+
+--2013-12-09 18:00:15--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaIR.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10560 (10K) [application/javascript]
+Saving to: ‘MangaIR.js’
+
+     0K ..........                                            100% 44.4K=0.2s
+
+2013-12-09 18:00:15 (44.4 KB/s) - ‘MangaIR.js’ saved [10560/10560]
+
+--2013-12-09 18:00:15--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaInn.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5950 (5.8K) [application/javascript]
+Saving to: ‘MangaInn.js’
+
+     0K .....                                                 100%  179K=0.03s
+
+2013-12-09 18:00:16 (179 KB/s) - ‘MangaInn.js’ saved [5950/5950]
+
+--2013-12-09 18:00:16--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaKong.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10195 (10.0K) [application/javascript]
+Saving to: ‘MangaKong.js’
+
+     0K .........                                             100% 44.4K=0.2s
+
+2013-12-09 18:00:16 (44.4 KB/s) - ‘MangaKong.js’ saved [10195/10195]
+
+--2013-12-09 18:00:16--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaLib.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5270 (5.1K) [application/javascript]
+Saving to: ‘MangaLib.js’
+
+     0K .....                                                 100%  178K=0.03s
+
+2013-12-09 18:00:16 (178 KB/s) - ‘MangaLib.js’ saved [5270/5270]
+
+--2013-12-09 18:00:16--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaPirate.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4862 (4.7K) [application/javascript]
+Saving to: ‘MangaPirate.js’
+
+     0K ....                                                  100%  174K=0.03s
+
+2013-12-09 18:00:17 (174 KB/s) - ‘MangaPirate.js’ saved [4862/4862]
+
+--2013-12-09 18:00:17--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaReader.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5472 (5.3K) [application/javascript]
+Saving to: ‘MangaReader.js’
+
+     0K .....                                                 100%  173K=0.03s
+
+2013-12-09 18:00:17 (173 KB/s) - ‘MangaReader.js’ saved [5472/5472]
+
+--2013-12-09 18:00:17--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaStream.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5745 (5.6K) [application/javascript]
+Saving to: ‘MangaStream.js’
+
+     0K .....                                                 100%  181K=0.03s
+
+2013-12-09 18:00:17 (181 KB/s) - ‘MangaStream.js’ saved [5745/5745]
+
+--2013-12-09 18:00:17--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaTraders.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9534 (9.3K) [application/javascript]
+Saving to: ‘MangaTraders.js’
+
+     0K .........                                             100%  176K=0.05s
+
+2013-12-09 18:00:17 (176 KB/s) - ‘MangaTraders.js’ saved [9534/9534]
+
+--2013-12-09 18:00:17--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaTurk.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10084 (9.8K) [application/javascript]
+Saving to: ‘MangaTurk.js’
+
+     0K .........                                             100%  176K=0.06s
+
+2013-12-09 18:00:18 (176 KB/s) - ‘MangaTurk.js’ saved [10084/10084]
+
+--2013-12-09 18:00:18--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangaYobai.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4686 (4.6K) [application/javascript]
+Saving to: ‘MangaYobai.js’
+
+     0K ....                                                  100%  182K=0.03s
+
+2013-12-09 18:00:18 (182 KB/s) - ‘MangaYobai.js’ saved [4686/4686]
+
+--2013-12-09 18:00:18--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Mangable.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10901 (11K) [application/javascript]
+Saving to: ‘Mangable.js’
+
+     0K ..........                                            100% 50.3K=0.2s
+
+2013-12-09 18:00:18 (50.3 KB/s) - ‘Mangable.js’ saved [10901/10901]
+
+--2013-12-09 18:00:18--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Mangacurse.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10361 (10K) [application/javascript]
+Saving to: ‘Mangacurse.js’
+
+     0K ..........                                            100%  181K=0.06s
+
+2013-12-09 18:00:19 (181 KB/s) - ‘Mangacurse.js’ saved [10361/10361]
+
+--2013-12-09 18:00:19--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Mangaholic.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4374 (4.3K) [application/javascript]
+Saving to: ‘Mangaholic.js’
+
+     0K ....                                                  100%  174K=0.02s
+
+2013-12-09 18:00:19 (174 KB/s) - ‘Mangaholic.js’ saved [4374/4374]
+
+--2013-12-09 18:00:19--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MangasProject.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9409 (9.2K) [application/javascript]
+Saving to: ‘MangasProject.js’
+
+     0K .........                                             100%  178K=0.05s
+
+2013-12-09 18:00:19 (178 KB/s) - ‘MangasProject.js’ saved [9409/9409]
+
+--2013-12-09 18:00:19--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MenudoFansub.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4399 (4.3K) [application/javascript]
+Saving to: ‘MenudoFansub.js’
+
+     0K ....                                                  100%  185K=0.02s
+
+2013-12-09 18:00:19 (185 KB/s) - ‘MenudoFansub.js’ saved [4399/4399]
+
+--2013-12-09 18:00:19--  https://ssl10.ovh.net/~allmanga/community/latest_v2/MudaScantrad.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4726 (4.6K) [application/javascript]
+Saving to: ‘MudaScantrad.js’
+
+     0K ....                                                  100% 3.40K=1.4s
+
+2013-12-09 18:00:21 (3.40 KB/s) - ‘MudaScantrad.js’ saved [4726/4726]
+
+--2013-12-09 18:00:21--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Otakuyo.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7396 (7.2K) [application/javascript]
+Saving to: ‘Otakuyo.js’
+
+     0K .......                                               100% 8.28K=0.9s
+
+2013-12-09 18:00:22 (8.28 KB/s) - ‘Otakuyo.js’ saved [7396/7396]
+
+--2013-12-09 18:00:22--  https://ssl10.ovh.net/~allmanga/community/latest_v2/OurManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 11173 (11K) [application/javascript]
+Saving to: ‘OurManga.js’
+
+     0K ..........                                            100% 12.7K=0.9s
+
+2013-12-09 18:00:23 (12.7 KB/s) - ‘OurManga.js’ saved [11173/11173]
+
+--2013-12-09 18:00:23--  https://ssl10.ovh.net/~allmanga/community/latest_v2/PunchMangas.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10158 (9.9K) [application/javascript]
+Saving to: ‘PunchMangas.js’
+
+     0K .........                                             100% 12.7K=0.8s
+
+2013-12-09 18:00:24 (12.7 KB/s) - ‘PunchMangas.js’ saved [10158/10158]
+
+--2013-12-09 18:00:24--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Pururin.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7375 (7.2K) [application/javascript]
+Saving to: ‘Pururin.js’
+
+     0K .......                                               100% 28.5K=0.3s
+
+2013-12-09 18:00:25 (28.5 KB/s) - ‘Pururin.js’ saved [7375/7375]
+
+--2013-12-09 18:00:25--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ReadManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4952 (4.8K) [application/javascript]
+Saving to: ‘ReadManga.js’
+
+     0K ....                                                  100%  182K=0.03s
+
+2013-12-09 18:00:25 (182 KB/s) - ‘ReadManga.js’ saved [4952/4952]
+
+--2013-12-09 18:00:25--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Redhawkscans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5472 (5.3K) [application/javascript]
+Saving to: ‘Redhawkscans.js’
+
+     0K .....                                                 100% 21.5K=0.2s
+
+2013-12-09 18:00:26 (21.5 KB/s) - ‘Redhawkscans.js’ saved [5472/5472]
+
+--2013-12-09 18:00:26--  https://ssl10.ovh.net/~allmanga/community/latest_v2/S2scans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5230 (5.1K) [application/javascript]
+Saving to: ‘S2scans.js’
+
+     0K .....                                                 100%  181K=0.03s
+
+2013-12-09 18:00:26 (181 KB/s) - ‘S2scans.js’ saved [5230/5230]
+
+--2013-12-09 18:00:26--  https://ssl10.ovh.net/~allmanga/community/latest_v2/SimpleScans.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4699 (4.6K) [application/javascript]
+Saving to: ‘SimpleScans.js’
+
+     0K ....                                                  100%  159K=0.03s
+
+2013-12-09 18:00:26 (159 KB/s) - ‘SimpleScans.js’ saved [4699/4699]
+
+--2013-12-09 18:00:26--  https://ssl10.ovh.net/~allmanga/community/latest_v2/StopTazmo.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 11678 (11K) [application/javascript]
+Saving to: ‘StopTazmo.js’
+
+     0K .......... .                                          100% 39.3K=0.3s
+
+2013-12-09 18:00:27 (39.3 KB/s) - ‘StopTazmo.js’ saved [11678/11678]
+
+--2013-12-09 18:00:27--  https://ssl10.ovh.net/~allmanga/community/latest_v2/SubManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 9637 (9.4K) [application/javascript]
+Saving to: ‘SubManga.js’
+
+     0K .........                                             100% 37.6K=0.3s
+
+2013-12-09 18:00:27 (37.6 KB/s) - ‘SubManga.js’ saved [9637/9637]
+
+--2013-12-09 18:00:27--  https://ssl10.ovh.net/~allmanga/community/latest_v2/TenManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 13786 (13K) [application/javascript]
+Saving to: ‘TenManga.js’
+
+     0K .......... ...                                        100% 50.2K=0.3s
+
+2013-12-09 18:00:28 (50.2 KB/s) - ‘TenManga.js’ saved [13786/13786]
+
+--2013-12-09 18:00:28--  https://ssl10.ovh.net/~allmanga/community/latest_v2/ThHour.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5445 (5.3K) [application/javascript]
+Saving to: ‘ThHour.js’
+
+     0K .....                                                 100%  172K=0.03s
+
+2013-12-09 18:00:28 (172 KB/s) - ‘ThHour.js’ saved [5445/5445]
+
+--2013-12-09 18:00:28--  https://ssl10.ovh.net/~allmanga/community/latest_v2/TheSpectrum.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 8924 (8.7K) [application/javascript]
+Saving to: ‘TheSpectrum.js’
+
+     0K ........                                              100%  178K=0.05s
+
+2013-12-09 18:00:28 (178 KB/s) - ‘TheSpectrum.js’ saved [8924/8924]
+
+--2013-12-09 18:00:28--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Titania.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10993 (11K) [application/javascript]
+Saving to: ‘Titania.js’
+
+     0K ..........                                            100% 50.9K=0.2s
+
+2013-12-09 18:00:29 (50.9 KB/s) - ‘Titania.js’ saved [10993/10993]
+
+--2013-12-09 18:00:29--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Trinitybakuma.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 7353 (7.2K) [application/javascript]
+Saving to: ‘Trinitybakuma.js’
+
+     0K .......                                               100%  183K=0.04s
+
+2013-12-09 18:00:29 (183 KB/s) - ‘Trinitybakuma.js’ saved [7353/7353]
+
+--2013-12-09 18:00:29--  https://ssl10.ovh.net/~allmanga/community/latest_v2/TwinDragons.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10023 (9.8K) [application/javascript]
+Saving to: ‘TwinDragons.js’
+
+     0K .........                                             100%  177K=0.06s
+
+2013-12-09 18:00:29 (177 KB/s) - ‘TwinDragons.js’ saved [10023/10023]
+
+--2013-12-09 18:00:29--  https://ssl10.ovh.net/~allmanga/community/latest_v2/UnixManga.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 13140 (13K) [application/javascript]
+Saving to: ‘UnixManga.js’
+
+     0K .......... ..                                         100% 31.0K=0.4s
+
+2013-12-09 18:00:30 (31.0 KB/s) - ‘UnixManga.js’ saved [13140/13140]
+
+--2013-12-09 18:00:30--  https://ssl10.ovh.net/~allmanga/community/latest_v2/VNSharing.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 10694 (10K) [application/javascript]
+Saving to: ‘VNSharing.js’
+
+     0K ..........                                            100% 9.00K=1.2s
+
+2013-12-09 18:00:31 (9.00 KB/s) - ‘VNSharing.js’ saved [10694/10694]
+
+--2013-12-09 18:00:31--  https://ssl10.ovh.net/~allmanga/community/latest_v2/Vortex.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4499 (4.4K) [application/javascript]
+Saving to: ‘Vortex.js’
+
+     0K ....                                                  100% 18.8K=0.2s
+
+2013-12-09 18:00:32 (18.8 KB/s) - ‘Vortex.js’ saved [4499/4499]
+
+--2013-12-09 18:00:32--  https://ssl10.ovh.net/~allmanga/community/latest_v2/WhuaMangas.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 4842 (4.7K) [application/javascript]
+Saving to: ‘WhuaMangas.js’
+
+     0K ....                                                  100% 20.1K=0.2s
+
+2013-12-09 18:00:32 (20.1 KB/s) - ‘WhuaMangas.js’ saved [4842/4842]
+
+--2013-12-09 18:00:32--  https://ssl10.ovh.net/~allmanga/community/latest_v2/amanteanime.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 3685 (3.6K) [application/javascript]
+Saving to: ‘amanteanime.js’
+
+     0K ...                                                   100% 16.5K=0.2s
+
+2013-12-09 18:00:33 (16.5 KB/s) - ‘amanteanime.js’ saved [3685/3685]
+
+--2013-12-09 18:00:33--  https://ssl10.ovh.net/~allmanga/community/latest_v2/kireicake.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 5253 (5.1K) [application/javascript]
+Saving to: ‘kireicake.js’
+
+     0K .....                                                 100% 19.1K=0.3s
+
+2013-12-09 18:00:33 (19.1 KB/s) - ‘kireicake.js’ saved [5253/5253]
+
+--2013-12-09 18:00:33--  https://ssl10.ovh.net/~allmanga/community/latest_v2/mangapanda.js
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 6539 (6.4K) [application/javascript]
+Saving to: ‘mangapanda.js’
+
+     0K ......                                                100% 14.3K=0.4s
+
+2013-12-09 18:00:34 (14.3 KB/s) - ‘mangapanda.js’ saved [6539/6539]
+
+--2013-12-09 18:00:34--  https://ssl10.ovh.net/~allmanga/community/latest_v2/websites.json
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 134678 (132K) [application/json]
+Saving to: ‘websites.json’
+
+     0K .......... .......... .......... .......... .......... 38% 16.8K 5s
+    50K .......... .......... .......... .......... .......... 76% 20.5K 2s
+   100K .......... .......... .......... .                    100% 25.0K=6.7s
+
+2013-12-09 18:00:41 (19.7 KB/s) - ‘websites.json’ saved [134678/134678]
+
+--2013-12-09 18:00:41--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=N;O=A
+Connecting to ssl10.ovh.net (ssl10.ovh.net)|2001:41d0:1:1b00:213:186:33:19|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=N;O=A’
+
+     0K ..........                                             18.3K=0.6s
+
+2013-12-09 18:00:43 (18.3 KB/s) - ‘index.html?C=N;O=A’ saved [10934]
+
+Removing index.html?C=N;O=A since it should be rejected.
+
+--2013-12-09 18:00:43--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=M;O=D
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=M;O=D’
+
+     0K ..........                                             38.6K=0.3s
+
+2013-12-09 18:00:43 (38.6 KB/s) - ‘index.html?C=M;O=D’ saved [10934]
+
+Removing index.html?C=M;O=D since it should be rejected.
+
+--2013-12-09 18:00:43--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=S;O=D
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=S;O=D’
+
+     0K ..........                                             40.0K=0.3s
+
+2013-12-09 18:00:44 (40.0 KB/s) - ‘index.html?C=S;O=D’ saved [10934]
+
+Removing index.html?C=S;O=D since it should be rejected.
+
+--2013-12-09 18:00:44--  https://ssl10.ovh.net/~allmanga/community/latest_v2/?C=D;O=D
+Reusing existing connection to [ssl10.ovh.net]:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html?C=D;O=D’
+
+     0K ..........                                             51.3K=0.2s
+
+2013-12-09 18:00:44 (51.3 KB/s) - ‘index.html?C=D;O=D’ saved [10934]
+
+Removing index.html?C=D;O=D since it should be rejected.
+
+FINISHED --2013-12-09 18:00:44--
+Total wall clock time: 1m 10s
+Downloaded: 95 files, 871K in 41s (21.2 KB/s)

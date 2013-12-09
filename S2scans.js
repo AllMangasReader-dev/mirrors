@@ -4,7 +4,7 @@ var S2scans = {
   mirrorIcon : "img/S2scans.png",
   languages : "en",
   isMe : function (url) {
-    return (url.indexOf("s2scanlations.com/online/") != -1);
+    return (url.indexOf("s2scanlations.com/online/") !== -1);
   },
   getMangaList : function (search, callback) {
     $.ajax({
@@ -44,7 +44,7 @@ var S2scans = {
         var div = document.createElement("div");
         div.innerHTML = objResponse.replace(/<img/gi, '<noload');
         var res = [];
-        $('.list > .element > .title > a', div).each(function (index) {
+        $('.element > .title > a', div).each(function (index) {
           res[res.length] = [$(this).attr('title'), $(this).attr('href')];
         });
         callback(res, obj);
@@ -87,7 +87,7 @@ var S2scans = {
     return $(".navAMR", doc);
   },
   isCurrentPageAChapterPage : function (doc, curUrl) {
-    return (curUrl.search('s2scanlations.com/online/reader/read/') > -1);
+    return ($("#content #page img.open", doc).length > 0);
   },
   doSomethingBeforeWritingScans : function (doc, curUrl) {
     if (typeof doc.createElement == 'function') {
@@ -137,9 +137,8 @@ var S2scans = {
   },
   doAfterMangaLoaded : function (doc, curUrl) {
     $("body > div:empty", doc).remove();
-  },
+  }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("S2scans", S2scans);

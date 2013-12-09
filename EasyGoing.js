@@ -5,12 +5,12 @@ var EasyGoing = {
     languages : "en",
     isMe : function (url) {
         "use strict";
-        return (url.indexOf("read.egscans.org") !== -1);
+        return (url.match(/read\.egscans\.(com|org)/gi) !== null);
     },
     getMangaList : function (search, callback) {
         "use strict";
         $.ajax({
-            url : "http://read.egscans.org/",
+            url : "http://read.egscans.com/",
             beforeSend : function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
@@ -19,9 +19,9 @@ var EasyGoing = {
                 var div = document.createElement("div"),
                     res = [];
                 div.innerHTML = objResponse.replace(/<img /gi, '<noload');
-                $("select[name='manga'] option", div).each(function (index) {
+                $("select[name='manga'] option", div).each(function () {
                     if ($(this).attr('value') !== 0) {
-                        res[res.length] = [$(this).text(), "http://read.egscans.org/" + $(this).attr('value')];
+                        res[res.length] = [$(this).text(), "http://read.egscans.com/" + $(this).attr('value')];
                     }
                 });
                 callback("Easy Going", res);
@@ -52,7 +52,7 @@ var EasyGoing = {
         "use strict";
         var name = $($("select[name='manga'] option:selected", doc)).text(),
             currentChapter = $($("select[name='chapter'] option:selected", doc)).text(),
-            currentMangaURL = "http://read.egscans.org/" + $($("select[name='manga'] option:selected", doc)).attr('value'),
+            currentMangaURL = "http://read.egscans.com/" + $($("select[name='manga'] option:selected", doc)).attr('value'),
             currentChapterURL = currentMangaURL + '/' + $($("select[name='chapter'] option:selected", doc)).attr('value');
         callback({
             "name" : name,
@@ -64,10 +64,10 @@ var EasyGoing = {
     getListImages : function (doc, curUrl) {
         "use strict";
         var res = [],
-            imgurl = /('([^']+)' )/gi,
-            match;
-        while ((match = imgurl.exec($('body', doc).html())) !== null) {
-            res.push("http://read.egscans.org/" + match[1].replace(/'/g, ""));
+            imgurl = /('([^']+)g' )/gi,
+            match = imgurl.exec($('body', doc).html());
+        while (match !== null) {
+            res.push("http://read.egscans.com/" + match[1].replace(/'/g, ""));
         }
         return res;
     },
@@ -79,14 +79,12 @@ var EasyGoing = {
         "use strict";
         return $(".navAMR", doc);
     },
-    removeBanners : function (doc, curUrl) {},
     isCurrentPageAChapterPage : function (doc, curUrl) {
         "use strict";
         return ($("select[name='chapter']", doc).length > 0);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         "use strict";
-        // doc.body.oncontextmenu = null;
         $('td.mid', doc).empty();
         $('td.mid', doc).append($("<div class='navAMR'></div>"));
         $('td.mid', doc).append($("<div class='imgAMR'></div>"));
