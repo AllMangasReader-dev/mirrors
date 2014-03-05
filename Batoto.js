@@ -105,7 +105,7 @@ var Batoto = {
                 res[index] = $(this).val();
             });
         } else {
-            $('#content > div:eq(4) > img', doc).each(function (index) {
+            $('#content > div > img', doc).each(function (index) {
                 res[index] = $(this).attr('src');
             });
         }
@@ -132,9 +132,7 @@ var Batoto = {
           	$("#full_image", doc).after($("<div class='amrcontainer'></div>"));
             $("#full_image", doc).remove();
         } else {
-            $('#content > div:eq(4)', doc).empty();
-          	$("<div class='amrcontainer'></div>").appendTo($('#content > div:eq(4)', doc));
-        }
+            $('#content > div > img', doc).parent().empty().append($("<div class='amrcontainer'></div>"));}
         $(".moderation_bar", doc).remove();
         if ($("#comic_page", doc).parent().size() > 0) {
             $("#comic_page", doc).parent().remove();

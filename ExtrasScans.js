@@ -8,7 +8,7 @@ var ExtrasScans = {
     },
     getMangaList : function (search, callback) {
         $.ajax({
-            url : "http://slide.extrascans.net/reader/list/",
+            url : "http://slide.extrascans.net/search/",
             type : 'POST',
             data : {
                 'search' : search
@@ -39,7 +39,7 @@ var ExtrasScans = {
                 var div = document.createElement("div");
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 var res = [];
-                $('.list > .element > .title > a', div).each(function (index) {
+                $('.list > .release > .title > a', div).each(function (index) {
                     res[res.length] = [$(this).attr('title'), $(this).attr('href')];
                 });
                 callback(res, obj);
@@ -47,10 +47,10 @@ var ExtrasScans = {
         });
     },
     getInformationsFromCurrentPage : function (doc, curUrl, callback) {
-        var name = $('.tbtitle div a', doc)[0].title;
-        var currentChapter = $('.tbtitle div a', doc)[1].text;
-        var currentMangaURL = $('.tbtitle div a', doc)[0].href;
-        var currentChapterURL = $('.tbtitle div a', doc)[1].href;
+        var name = $("title", doc).text().split(" :: ")[0];
+        var currentChapter = $(".btn-group:eq(0) button.dropdown-toggle", doc).text().trim();
+        var currentMangaURL = $(".controls > a", doc).attr("href");
+        var currentChapterURL = $("a[title=\""+currentChapter+"\"]", doc).attr("href");
         callback({
             "name" : name,
             "currentChapter" : currentChapter,
@@ -78,13 +78,13 @@ var ExtrasScans = {
         $(".ads", doc).remove();
     },
     whereDoIWriteScans : function (doc, curUrl) {
-        return $('#page', doc);
+        return $('.content', doc);
     },
     whereDoIWriteNavigation : function (doc, curUrl) {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
-        return (curUrl.search('slide.extrascans.net/reader/read/') > -1);
+        return (curUrl.search('slide.extrascans.net/read/') > -1);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         if (typeof doc.createElement === 'function') {
@@ -93,15 +93,16 @@ var ExtrasScans = {
             script.type = "text/javascript";
             doc.body.appendChild(script);
         }
-        $("#page", doc).before("<div class='navAMR'></div>");
-        $("#page", doc).after("<div class='navAMR'></div>");
-        $("#page", doc).empty();
-        $("#page", doc).css("width", "auto");
-        $("#page", doc).css("max-width", "none");
+        $(".content", doc).before("<div class='navAMR'></div>");
+        $(".content", doc).after("<div class='navAMR'></div>");
+        $(".content", doc).empty();
+        $(".content", doc).css("width", "auto");
+        $(".content", doc).css("max-width", "none");
         $(".navAMR").css("text-align", "center");
+        $(".controls").hide()
         $(window).resize(function () {
-            $("#page", doc).css("max-width", "none");
-            $("#page", doc).css("width", "auto");
+            $(".content", doc).css("max-width", "none");
+            $(".content", doc).css("width", "auto");
         });
     },
     nextChapterUrl : function (select, doc, curUrl) {

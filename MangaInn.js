@@ -65,7 +65,7 @@ var MangaInn = {
         var name = $('#gotoMangaInfo', doc).text();
         var currentChapter = $('#chapters option:selected', doc).text().replace(name, '').trim();
         var currentMangaURL = $('#gotoMangaInfo', doc).attr('href');
-      var currentChapterURL = $('.footer:first a', doc).attr('href');
+      var currentChapterURL = "http://www.mangainn.com/manga/chapter/" + $("#chapters option:selected", doc).val();
         callback({
             "name" : name,
             "currentChapter" : currentChapter,

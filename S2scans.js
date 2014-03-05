@@ -8,7 +8,7 @@ var S2scans = {
   },
   getMangaList : function (search, callback) {
     $.ajax({
-      url : "http://s2scanlations.com/online/reader/search/",
+      url : "http://s2scanlations.com/online/search/",
       type : 'POST',
       data : {
         'search' : search
@@ -139,6 +139,7 @@ var S2scans = {
     $("body > div:empty", doc).remove();
   }
 }
+
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("S2scans", S2scans);

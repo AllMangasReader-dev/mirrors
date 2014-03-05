@@ -50,10 +50,10 @@ var EasyGoing = {
     },
     getInformationsFromCurrentPage : function (doc, curUrl, callback) {
         "use strict";
-        var name = $($("select[name='manga'] option:selected", doc)).text(),
-            currentChapter = $($("select[name='chapter'] option:selected", doc)).text(),
-            currentMangaURL = "http://read.egscans.com/" + $($("select[name='manga'] option:selected", doc)).attr('value'),
-            currentChapterURL = currentMangaURL + '/' + $($("select[name='chapter'] option:selected", doc)).attr('value');
+        var name = $("select[name='manga'] option:selected", doc).text(),
+            currentChapter = $("select[name='chapter'] option:selected", doc).text(),
+            currentMangaURL = "http://read.egscans.com/" + $("select[name='manga'] option:selected", doc).attr('value'),
+            currentChapterURL = currentMangaURL + '/' + $("select[name='chapter'] option:selected", doc).attr('value');
         callback({
             "name" : name,
             "currentChapter" : currentChapter,
@@ -64,10 +64,14 @@ var EasyGoing = {
     getListImages : function (doc, curUrl) {
         "use strict";
         var res = [],
-            imgurl = /('([^']+)g' )/gi,
-            match = imgurl.exec($('body', doc).html());
-        while (match !== null) {
-            res.push("http://read.egscans.com/" + match[1].replace(/'/g, ""));
+            img = [],
+            txt,
+            i;
+        txt = $(".mid > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > script:nth-child(2)", doc).html();
+        txt = JSON.stringify(txt);
+        img = txt.match(/img_url\.push\(\'.+?\' \)/g);
+        for (i = 0; img.length > i; i += 1) {
+            res.push("http://read.egscans.com/" + img[i].match(/'(.*?)'/ig)[0].replace(/'/g, ""));
         }
         return res;
     },

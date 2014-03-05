@@ -82,14 +82,14 @@ var EJapanzai = {
                     sbraces1;
                 div.innerHTML = response;
                 txt = $("script", div).text();
-                rel = "var pages = "
+                rel = "var pages="
                 re1 = '.*?'; // Non-greedy match on filler
-                re2 = '[{^\(]*(\(.*\))[^\)}]'; // Square Braces 1
+                re2 = '[{^(]*((.*))[^)}]'; // Square Braces 1
                 p = new RegExp(rel + re1 + re2, ["i"]);
                 m = p.exec(txt);
                 if (m !== null) {
                     sbraces1 = m[1];
-                    imgstring = sbraces1.replace(/</, "<").replace(" = ","").replace(/;([^;]*)$/,'$1');
+                    imgstring = sbraces1.replace(/</, "<").replace(" = ","").replace(/;([^;]*)$/,'$1').replace(/;.*/,"");
                     imgarray = JSON.parse(imgstring);
                     for (i = 0; i < imgarray.length; i += 1) {
                         res.push(imgarray[i].url);

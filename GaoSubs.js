@@ -5,12 +5,12 @@ var GaoSubs = {
     languages: "en",
     isMe: function (url) {
         "use strict";
-        return (url.search(/(gao-subs|gaomanga).com/g) > -1);
+        return (url.search(/(gao-subs|gaomanga)\.com/g) > -1);
     },
     getMangaList: function (search, callback) {
         "use strict";
         $.ajax({
-            url: "http://www.gao-subs.com/search/search.php?search=" + search,
+            url: "http://www.gaomanga.com/search/search.php?search=" + search,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
@@ -20,7 +20,7 @@ var GaoSubs = {
                     res = [];
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 $('.mangaDisplay', div).each(function (index) {
-                    res.push([$('.mangaNfo', this).text(), 'http://www.gao-subs.com' + $('a', this).attr('href')]);
+                    res.push([$('.mangaNfo', this).text(), 'http://www.gaomanga.com' + $('a', this).attr('href')]);
                 });
                 callback("Gao-subs", res);
             }
@@ -39,7 +39,7 @@ var GaoSubs = {
                     res = [];
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 $('.fullLink:odd', div).each(function (index) {
-                    res.push([this.firstChild.textContent.trim(), 'http://www.gao-subs.com' + $(this).attr('href')]);
+                    res.push([this.firstChild.textContent.trim(), 'http://www.gaomanga.com' + $(this).attr('href')]);
                 });
                 callback(res, obj);
             }
@@ -48,10 +48,10 @@ var GaoSubs = {
     getInformationsFromCurrentPage: function (doc, curUrl, callback) {
         "use strict";
         var name = $('#searchBar a:last', doc).text(),
-            info = $('.chapterNavigator select option:selected', doc).attr('value').split(';'),
+            info = $("script", doc).text().match(/write_select_chapters\(.*?\)/)[0].split(","),
             currentChapter = $('.chapterNavigator select option:selected', doc).text(),
             currentMangaURL = 'http://www.' + (curUrl.indexOf('subs') !== -1 ? 'gao-subs.com' : 'gaomanga.com') + $('#searchBar a:last', doc).attr('href'),
-            currentChapterURL = currentMangaURL + 'volume_' + info[0] + '/chapter_' + info[1] + '/';
+            currentChapterURL = currentMangaURL + "volume_" + info[1].trim().replace(/[^0-9.]/g, "") + "/" + "chapter_" + info[2].trim().replace(/[^0-9.]/g, "") + "/";
         callback({
             "name": name,
             "currentChapter": currentChapter,

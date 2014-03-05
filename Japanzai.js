@@ -10,14 +10,18 @@ var Japanzai = {
     getMangaList: function (search, callback) {
         "use strict";
         $.ajax({
-            url: "http://reader.japanzai.com/search/",
+            url: "https://reader.japanzai.com/search/",
             type: 'POST',
             data: {
                 'search': search
             },
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
+                xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
             success: function (objResponse) {
                 var div = document.createElement("div"),
@@ -71,6 +75,7 @@ var Japanzai = {
             success: function (response) {
                 var div = document.createElement("div"),
                     re1,
+                    rel,
                     i,
                     imgstring,
                     imgarray,
@@ -80,14 +85,15 @@ var Japanzai = {
                     txt,
                     sbraces1;
                 div.innerHTML = response;
-                txt = $("script:eq(6)").html();
+                txt = $("script", div).text();
+                rel = "var pages="
                 re1 = '.*?'; // Non-greedy match on filler
-                re2 = '(\\[.*?\\])'; // Square Braces 1
-                p = new RegExp(re1 + re2, ["i"]);
+                re2 = '[{^(]*((.*))[^)}]'; // Square Braces 1
+                p = new RegExp(rel + re1 + re2, ["i"]);
                 m = p.exec(txt);
                 if (m !== null) {
                     sbraces1 = m[1];
-                    imgstring = sbraces1.replace(/</, "<");
+                    imgstring = sbraces1.replace(/</, "<").replace(" = ","").replace(/;([^;]*)$/,'$1').replace(/;.*/,"");
                     imgarray = JSON.parse(imgstring);
                     for (i = 0; i < imgarray.length; i += 1) {
                         res.push(imgarray[i].url);
@@ -121,8 +127,8 @@ var Japanzai = {
             script.type = 'text/javascript';
             doc.body.appendChild(script);
         }
-        $('#page').css("max-width", "none");
-        $('#page').css("width", "100%");
+        $('#page', doc).css("max-width", "none");
+        $('#page', doc).css("width", "100%");
         $("#page", doc).before("<div class='navAMR'></div>");
         $("#page", doc).after("<div class='navAMR'></div>");
         $("#page", doc).empty();
