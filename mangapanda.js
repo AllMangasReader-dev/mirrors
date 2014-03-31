@@ -50,10 +50,7 @@ var mangapanda = {
                         txt += $(this).text();
                     });
                     txt = txt.replace(mangaName.trim(), " ");
-                    txt = txt.replace(/n/g, " ");
-                    while (txt.indexOf("  ") !== -1) {
-                        txt = txt.replace("  ", " ");
-                    }
+                    txt = txt.replace(/(\n| )+/g, " ");
                     res[res.length] = [txt.trim(), "http://www.mangapanda.com" + inlink];
                 });
                 res = res.reverse();

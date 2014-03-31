@@ -15,14 +15,6 @@ var Japanzai = {
             data: {
                 'search': search
             },
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Cache-Control", "no-cache");
-                xhr.setRequestHeader("Pragma", "no-cache");
-                xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-            },
             success: function (objResponse) {
                 var div = document.createElement("div"),
                     res = [];
@@ -37,10 +29,15 @@ var Japanzai = {
     getListChaps: function (urlManga, mangaName, obj, callback) {
         "use strict";
         $.ajax({
-            url: urlManga,
-            beforeSend: function (xhr) {
+            url : urlManga,
+            type : 'POST',
+            data : {
+                'adult' : true
+            },
+            beforeSend : function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
+                xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
             },
             success: function (objResponse) {
                 var div = document.createElement("div"),
@@ -55,10 +52,10 @@ var Japanzai = {
     },
     getInformationsFromCurrentPage: function (doc, curUrl, callback) {
         "use strict";
-        var name = $('.tbtitle div a', doc)[0].title,
-            currentChapter = $('.tbtitle div a', doc)[1].text,
-            currentMangaURL = $('.tbtitle div a', doc)[0].href,
-            currentChapterURL = $('.tbtitle div a', doc)[1].href;
+        var name = $('.tbtitle.dnone a:first', doc).text(),
+            currentChapter = $('.tbtitle.dnone a:last', doc).text(),
+            currentMangaURL = $('.tbtitle.dnone a:first', doc).attr("href"),
+            currentChapterURL = $('.tbtitle.dnone a:last', doc).attr("href");
         callback({
             "name": name,
             "currentChapter": currentChapter,
@@ -105,7 +102,6 @@ var Japanzai = {
     },
     removeBanners: function (doc, curUrl) {
         "use strict";
-        $(".ads", doc).remove();
     },
     whereDoIWriteScans: function (doc, curUrl) {
         "use strict";
