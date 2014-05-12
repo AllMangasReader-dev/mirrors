@@ -24,7 +24,7 @@ var MangaHere = {
   
   //Return true if the url corresponds to the mirror
   isMe : function(url) {
-    return (url.indexOf("mangahere.com/") != -1);
+    return (url.indexOf("mangahere.co/") != -1);
   },
   
   //Return the list of all or part of all mangas from the mirror
@@ -34,7 +34,7 @@ var MangaHere = {
   getMangaList : function(search, callback) {
      $.ajax(
         {
-          url: "http://www.mangahere.com/search.php?name=" + search,
+          url: "http://www.mangahere.co/search.php?name=" + search,
           
           beforeSend: function(xhr) {
             xhr.setRequestHeader("Cache-Control", "no-cache");
