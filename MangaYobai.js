@@ -1,6 +1,6 @@
 var MangaYobai = {
   mirrorName : "MangaYobai",
-  canListFullMangas : true,
+  canListFullMangas : false,
   mirrorIcon : "img/generic.png",
   languages: "en",
 
@@ -74,7 +74,7 @@ var MangaYobai = {
   
   getListImages : function(doc, curUrl) {
     var res = [];
-  	eval($('body', doc).html().match(/var pages = .*\n/)[0]);
+  	eval($('body', doc).html().match(/var pages = .*n/)[0]);
   	pages.forEach(function(page)
   	{
   		res.push(page.url);
