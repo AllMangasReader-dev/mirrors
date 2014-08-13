@@ -62,7 +62,8 @@ var MangaFox = {
   },
   getInformationsFromCurrentPage : function (doc, curUrl, callback) {
     "use strict";
-    var name = $('#related > h3 a', doc).text();
+    var str = $('#series > strong a',doc).text();// dom lookups are expensive!
+    var name = $('#related > h3 a', doc).text()||str.substring(0,str.length-6);//falls through #related, into #series 
     var currentChapter = $("#series h1", doc).text();
     var url = curUrl;
     var posSl5 = 0;
