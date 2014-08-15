@@ -124,7 +124,7 @@ var MangaFox = {
     $("#image", doc).remove();
     $("#tool", doc).next().remove();
     $("#viewer", doc).after("<div class='navAMR'></div>").before("<div class='navAMR'></div>");
-    $(".widepage.page", doc).remove();
+    $('.widepage').css('display','none'); //have to still have this for the series name.
     $('.fb_iframe_widget', doc).remove();
     if (typeof doc.createElement === 'function') {
       var script = doc.createElement('script');
