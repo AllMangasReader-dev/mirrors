@@ -8,7 +8,7 @@ var MangaTraders =
 	//Return true if the url corresponds to the mirror
 	isMe: function(url)
 	{
-		return (url.indexOf("www.mangatraders.com/") != -1);
+		return (url.indexOf("www.mangatraders.org/") != -1);
 	},
 
 	//Return the list of all or part of all mangas from the mirror
