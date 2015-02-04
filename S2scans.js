@@ -92,7 +92,7 @@ var S2scans = {
   doSomethingBeforeWritingScans : function (doc, curUrl) {
     if (typeof doc.createElement == 'function') {
       script = doc.createElement('script');
-      script.type = "text/rocketscript";
+      script.type = "text/javascript";
       script.onload = OnceLoaded;
       script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).unbind('keydown');});";
       script.innerText += "function OnceLoaded() {changePage = function(){};$(document).ready(function(){$(document).unbind('keydown');});}"

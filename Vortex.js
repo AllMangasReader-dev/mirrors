@@ -1,14 +1,13 @@
 var Vortex = {
 	mirrorName : "Vortex Scans",
 	canListFullMangas : false,
-	mirrorIcon : "img/imperial.png",
 	languages : "en",
 	isMe : function (url) {
 		return (url.indexOf("reader.vortex-scans.com") != -1);
 	},
 	getMangaList : function (search, callback) {
 		$.ajax({
-			url : "http://reader.vortex-scans.com/reader/search/",
+			url : "http://reader.vortex-scans.com/search/",
 			type : 'POST',
 			data : {
 				'search' : search
@@ -43,7 +42,7 @@ var Vortex = {
 				var div = document.createElement("div");
 				div.innerHTML = objResponse.replace(/<img/gi, '<noload');
 				var res = [];
-				$('.list > .element > .title > a', div).each(function (index) {
+				$('.list .element > .title > a', div).each(function (index) {
 					res[res.length] = [$(this).attr('title'), $(this).attr('href')];
 				});
 				callback(res, obj);
@@ -88,7 +87,7 @@ var Vortex = {
 		return $(".navAMR", doc);
 	},
 	isCurrentPageAChapterPage : function (doc, curUrl) {
-		return (curUrl.search('reader.vortex-scans.com/reader/read/') > -1);
+		return (curUrl.search('reader.vortex-scans.com/read/') > -1);
 	},
 	doSomethingBeforeWritingScans : function (doc, curUrl) {
 		if (typeof doc.createElement == 'function') {

@@ -5,12 +5,12 @@ var Batoto = {
     languages: "en,fr,de,es,pt,tr,id,el,tl",
     isMe: function (url) {
         "use strict";
-        return (url.match(/ba(to)+\.(com|net|to)/gi) !== null);
+        return (url.match(/ba(to)+.(com|net|to)/gi) !== null);
     },
     getMangaList: function (search, callback) {
         "use strict";
         $.ajax({
-            url: 'http://www.bato.to/search?name=' + search + '&name_cond=c',
+            url: 'http://bato.to/search?name=' + search + '&name_cond=c',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
@@ -75,14 +75,14 @@ var Batoto = {
         var manga = $("ul:first-child a", mod_bar);
         var name = manga.text();
         var group = $("select[name='group_select']:first option:selected", doc).text();
-        if (group && group !== "") {
+        if (group && group != "") {
             var gps = group.split(" ");
             var lang;
             var i = gps.length - 1;
-            while ((lang = gps[i]) === "" && i >= 0) {
+            while ((lang = gps[i]) == "" && i >= 0) {
                 i--;
             }
-            if (lang !== "English" && lang !== "") {
+            if (lang != "English" && lang != "") {
                 name += " (" + lang + ")";
             }
         }

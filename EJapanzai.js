@@ -33,10 +33,15 @@ var EJapanzai = {
     getListChaps: function (urlManga, mangaName, obj, callback) {
         "use strict";
         $.ajax({
-            url: urlManga,
-            beforeSend: function (xhr) {
+            url : urlManga,
+            type : 'POST',
+            data : {
+                'adult' : true
+            },
+            beforeSend : function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
+                xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
             },
             success: function (objResponse) {
                 var div = document.createElement("div"),

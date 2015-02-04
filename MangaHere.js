@@ -84,8 +84,10 @@ var MangaHere = {
         }
         currentChapter = $($(".readpage_top .title a", doc)[0]).text();
         currentChapterURL = $($(".readpage_top .title a", doc)[0]).attr("href");
+		console.log(currentChapterURL);
         currentMangaURL = $($(".readpage_top .title a", doc)[1]).attr("href");
-
+		
+		
         callback({
             "name": name,
             "currentChapter": currentChapter,
@@ -119,14 +121,14 @@ var MangaHere = {
     //The returned element will be totally emptied.
     whereDoIWriteScans: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
-        return $("#viewer", doc);
+        return $(".scanAMR", doc);
     },
 
     //This method returns places to write the navigation bar in the document
     //The returned elements won't be emptied.
     whereDoIWriteNavigation: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
-        return $(".go_page.clearfix", doc);
+        return $(".navAMR", doc);
     },
 
     //Return true if the current page is a page containing scan.
@@ -137,12 +139,11 @@ var MangaHere = {
     //This method is called before displaying full chapters in the page
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
-        $("#viewer", doc).empty();
-        $("#viewer", doc).css("width", "auto");
-        $("#viewer", doc).css("background-color", "black");
-        $("#viewer", doc).css("padding-top", "10px");
-        $(".go_page.clearfix", doc).empty();
-        $(".go_page.clearfix", doc).css("text-align", "center");
+		$("#viewer", doc).empty().append($("<div class='amrcontainer'></div>"));
+		$(".go_page.clearfix", doc).empty();
+		$("<div class='navAMR widepage'></div>").appendTo($(".amrcontainer", doc));
+        $("<div class='scanAMR widepage'></div>").appendTo($(".amrcontainer", doc));
+        $("<div class='navAMR widepage'></div>").appendTo($(".amrcontainer", doc));
     },
 
     //This method is called to fill the next button's url in the manga site navigation bar
@@ -176,9 +177,7 @@ var MangaHere = {
             success: function (objResponse) {
                 var div = document.createElement("div");
                 div.innerHTML = objResponse;
-
                 var src = $("#image", div).attr("src");
-
                 $(image).attr("src", src);
             }
         });
@@ -203,6 +202,10 @@ var MangaHere = {
     doAfterMangaLoaded: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
         $("body > div:empty", doc).remove();
+		var script = doc.createElement('script');
+        script.innerText = "Hotkeys.hotkeys.clear();";
+        doc.body.appendChild(script);
+		$(".spanForImg").css("text-align", "left");
     }
 };
 

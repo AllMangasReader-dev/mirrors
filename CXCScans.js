@@ -66,7 +66,7 @@ var CXCScans = {
     }, 
     getListImages : function(doc, curUrl) {
         var res = [],
-            pages = JSON.parse($('body', doc).html().match(/var pages = .*;/)[0].replace(/var pages = /,"").replace(/;$/,""));        
+            pages = JSON.parse($('body', doc).html().match(/pages\s?=\s?.*];/)[0].replace(/pages\s?=\s?/,"").replace(/;$/,""));        
         pages.forEach(function(page) {
             res.push(page.url);
         });
