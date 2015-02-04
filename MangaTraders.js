@@ -8,7 +8,7 @@ var MangaTraders =
 	//Return true if the url corresponds to the mirror
 	isMe: function(url)
 	{
-		return (url.indexOf("www.mangatraders.com/") != -1);
+		return (url.indexOf("www.mangatraders.org/") != -1);
 	},
 
 	//Return the list of all or part of all mangas from the mirror
@@ -19,7 +19,7 @@ var MangaTraders =
 	{
 		$.ajax(
 		{
-			url: "http://www.mangatraders.com/search/?searchSeries=1&showOnlySeries=1&term=" + search,
+			url: "http://www.mangatraders.org/search/?searchSeries=1&showOnlySeries=1&term=" + search,
 			beforeSend: function(xhr)
 			{
 				xhr.setRequestHeader("Cache-Control", "no-cache");
