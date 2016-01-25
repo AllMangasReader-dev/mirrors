@@ -14,11 +14,11 @@ var CXCScans = {
                     xhr.setRequestHeader("Cache-Control", "no-cache");
                     xhr.setRequestHeader("Pragma", "no-cache");
                     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-                }, 
+                },
                 type: 'POST',
                 data: {
                     'search': search
-                }, 
+                },
                 success: function(objResponse){
                     var div = document.createElement("div"),
                         res = [];
@@ -26,11 +26,10 @@ var CXCScans = {
                     $('.panel .group > .title a', div).each(function(index) {
                         res[res.length] = [$(this).attr('title'), $(this).attr('href')];
                     });
-
                     callback("CXC Scans", res);
                 }
             });
-    }, 
+    },
     getListChaps : function(urlManga, mangaName, obj, callback) {
         $.ajax(
             {
@@ -42,9 +41,9 @@ var CXCScans = {
                     xhr.setRequestHeader("Cache-Control", "no-cache");
                     xhr.setRequestHeader("Pragma", "no-cache");
                     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-                }, 
+                },
                 success: function(objResponse){
-                    var div = document.createElement( "div" ); 
+                    var div = document.createElement( "div" );
                     div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                     var res = [];
                     $('.list .group .title a', div).each(function(index) {
@@ -59,14 +58,14 @@ var CXCScans = {
         var currentChapter = $('.tbtitle div a', doc)[1].text;
         var currentMangaURL = $('.tbtitle div a', doc)[0].href;
         var currentChapterURL = $('.tbtitle div a', doc)[1].href;
-        callback({"name": name, 
-                  "currentChapter": currentChapter, 
-                  "currentMangaURL": currentMangaURL, 
+        callback({"name": name,
+                  "currentChapter": currentChapter,
+                  "currentMangaURL": currentMangaURL,
                   "currentChapterURL": currentChapterURL});
-    }, 
+    },
     getListImages : function(doc, curUrl) {
         var res = [],
-            pages = JSON.parse($('body', doc).html().match(/pages\s?=\s?.*];/)[0].replace(/pages\s?=\s?/,"").replace(/;$/,""));        
+            pages = JSON.parse($('body', doc).html().match(/pages\s?=\s?.*];/)[0].replace(/pages\s?=\s?/,"").replace(/;$/,""));
         pages.forEach(function(page) {
             res.push(page.url);
         });
@@ -128,7 +127,6 @@ var CXCScans = {
         $("#page", doc).css("max-width", "none");
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("CXC Scans", CXCScans);

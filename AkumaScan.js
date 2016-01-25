@@ -126,7 +126,6 @@ var AkumaScan = {
       $("body > div:empty", doc).remove();
    }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Akuma Scan", AkumaScan);

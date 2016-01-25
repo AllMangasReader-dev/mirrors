@@ -128,7 +128,6 @@ var EasyGoing = {
         $('option', doc).css('background-color', 'white').css('color', 'black');
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Easy Going", EasyGoing);

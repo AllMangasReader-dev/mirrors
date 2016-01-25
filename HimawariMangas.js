@@ -1,15 +1,13 @@
-var HimawariMangas = 
+var HimawariMangas =
 {
 	mirrorName: "Himawari Mangás",
 	canListFullMangas: true,
 	mirrorIcon: "img/himawarimangas.png",
 	languages: "pt",
-
 	isMe : function(url)
 	{
 		return (url.indexOf("read.himawarimangas.com.br/") != -1);
 	},
-
 	//Return the list of all or part of all mangas from the mirror
 	//The search parameter is filled if canListFullMangas is false
 	//This list must be an Array of [["manga name", "url"], ...]
@@ -23,10 +21,10 @@ var HimawariMangas =
 			{
 				xhr.setRequestHeader("Cache-Control", "no-cache");
 				xhr.setRequestHeader("Pragma", "no-cache");
-			}, 
+			},
 			success: function(objResponse)
 			{
-				var div = document.createElement("div");  
+				var div = document.createElement("div");
 				div.innerHTML = objResponse;
 				var res = [];
 				$(".selector2 .options a", div).each(function(index)
@@ -36,8 +34,7 @@ var HimawariMangas =
 				callback("Himawari Mangás", res);
 			}
 		});
-	}, 
-
+	},
 	//Find the list of all chapters of the manga represented by the urlManga parameter
 	//This list must be an Array of [["chapter name", "url"], ...]
 	//This list must be sorted descending. The first element must be the most recent.
@@ -51,23 +48,20 @@ var HimawariMangas =
 			{
 				xhr.setRequestHeader("Cache-Control", "no-cache");
 				xhr.setRequestHeader("Pragma", "no-cache");
-			}, 
+			},
 			success: function(objResponse)
 			{
-				var div = document.createElement("div"); 
+				var div = document.createElement("div");
 				div.innerHTML = objResponse;
-
 				var res = [];
 				$(".theList .chapter", div).each(function(index)
 				{
 					res.push([$("b", $(this)).text().trim(), "http://read.himawarimangas.com.br/" + $("a", $(this)).attr("href")]);
 				});
-
 				callback(res, obj);
 			}
 		});
 	},
-
 	retrieveInfo: function(sel)
 	{
 		var _obj = {};
@@ -83,11 +77,10 @@ var HimawariMangas =
 		});
 		return _obj;
 	},
-
-	//This method must return (throught callback method) an object like : 
-	//{"name" : Name of current manga, 
-	//  "currentChapter": Name of thee current chapter (one of the chapters returned by getListChaps), 
-	//  "currentMangaURL": Url to access current manga, 
+	//This method must return (throught callback method) an object like :
+	//{"name" : Name of current manga,
+	//  "currentChapter": Name of thee current chapter (one of the chapters returned by getListChaps),
+	//  "currentMangaURL": Url to access current manga,
 	//  "currentChapterURL": Url to access current chapter}
 	//This function runs in the DOM of the current consulted page.
 	getInformationsFromCurrentPage: function(doc, curUrl, callback)
@@ -96,23 +89,20 @@ var HimawariMangas =
 		var currentChapter;
 		var currentMangaURL;
 		var currentChapterURL;
-
 		var manga = HimawariMangas.retrieveInfo($($(".selector2", doc)[0]));
 		var chapter = HimawariMangas.retrieveInfo($($(".selector2", doc)[1]));
 		name = manga.name;
 		currentChapter = chapter.name;
 		currentChapterURL = chapter.url;
 		currentMangaURL = manga.url;
-
 		callback(
 		{
-			"name": name, 
-			"currentChapter": currentChapter, 
-			"currentMangaURL": currentMangaURL, 
+			"name": name,
+			"currentChapter": currentChapter,
+			"currentMangaURL": currentMangaURL,
 			"currentChapterURL": currentChapterURL
 		});
-	}, 
-
+	},
 	//Returns the list of the urls of the images of the full chapter
 	//This function can return urls which are not the source of the
 	//images. The src of the image is set by the getImageFromPageAndWrite() function.
@@ -138,14 +128,12 @@ var HimawariMangas =
 		res.pop()
 		return res;
 	},
-
 	//Remove the banners from the current page
 	//This function runs in the DOM of the current consulted page.
 	removeBanners: function(doc, curUrl)
 	{
 		$(".ads", doc).remove();
 	},
-
 	//This method returns the place to write the full chapter in the document
 	//The returned element will be totally emptied.
 	//This function runs in the DOM of the current consulted page.
@@ -153,7 +141,6 @@ var HimawariMangas =
 	{
 		return $(".scanAMR", doc);
 	},
-
 	//This method returns places to write the navigation bar in the document
 	//The returned elements won't be emptied.
 	//This function runs in the DOM of the current consulted page.
@@ -161,13 +148,11 @@ var HimawariMangas =
 	{
 		return $(".navAMR", doc);
 	},
-
 	//Return true if the current page is a page containing scan.
 	isCurrentPageAChapterPage: function(doc, curUrl)
 	{
 		return ($("#theManga #thePic", doc).size() > 0);
 	},
-
 	//This method is called before displaying full chapters in the page
 	//This function runs in the DOM of the current consulted page.
 	doSomethingBeforeWritingScans: function(doc, curUrl)
@@ -191,7 +176,6 @@ var HimawariMangas =
 		$("<div class='navAMR'></div>").appendTo($("#amrManga", doc));
 		$(".navAMR", doc).css("text-align", "center");
 	},
-
 	//This method is called to fill the next button's url in the manga site navigation bar
 	//The select containing the mangas list next to the button is passed in argument
 	//This function runs in the DOM of the current consulted page.
@@ -203,7 +187,6 @@ var HimawariMangas =
 		}
 		return null;
 	},
-
 	//This method is called to fill the previous button's url in the manga site navigation bar
 	//The select containing the mangas list next to the button is passed in argument
 	//This function runs in the DOM of the current consulted page.
@@ -215,7 +198,6 @@ var HimawariMangas =
 		}
 		return null;
 	},
-
 	//Write the image from the the url returned by the getListImages() function.
 	//The function getListImages can return an url which is not the source of the
 	//image. The src of the image is set by this function.
@@ -225,8 +207,7 @@ var HimawariMangas =
 	{
 		$(image).attr("src", urlImg);
 	},
-
-	//If it is possible to know if an image is a credit page or something which 
+	//If it is possible to know if an image is a credit page or something which
 	//must not be displayed as a book, just return true and the image will stand alone
 	//img is the DOM object of the image
 	//This function runs in the DOM of the current consulted page.
@@ -234,8 +215,7 @@ var HimawariMangas =
 	{
 		return false;
 	},
-
-	//This function can return a preexisting select from the page to fill the 
+	//This function can return a preexisting select from the page to fill the
 	//chapter select of the navigation bar. It avoids to load the chapters
 	//This function runs in the DOM of the current consulted page.
 	getMangaSelectFromPage: function(doc, curUrl)
@@ -255,8 +235,7 @@ var HimawariMangas =
 			$("<option value=\"" + "http://read.himawarimangas.com.br/" + $(this).attr("href") + "\"" + (iscur ? "selected=\"selected\"" : "") + ">" + $(".option", $(this)).text().trim() + "</option>").appendTo(ret);
 		});
 		return ret;
-	},  
-
+	},
 	//This function is called when the manga is full loaded. Just do what you want here...
 	//This function runs in the DOM of the current consulted page.
 	doAfterMangaLoaded : function(doc, curUrl)
@@ -265,7 +244,6 @@ var HimawariMangas =
 		$('#infoSpread').hide();
 	}
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Himawari Mangás", HimawariMangas);

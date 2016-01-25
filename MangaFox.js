@@ -97,7 +97,7 @@ var MangaFox = {
         "use strict";
         var str = $('#series > strong a', doc).text(); // dom lookups are expensive!
         var name = $('#related > h3 a', doc).text() || str.substring(0,
-            str.length - 6); //falls through #related, into #series 
+            str.length - 6); //falls through #related, into #series
         var currentChapter = $("#series h1", doc).text();
         var url = curUrl;
         var posSl5 = 0;
@@ -209,7 +209,6 @@ var MangaFox = {
         $("body > div:empty", doc).remove();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Manga-Fox", MangaFox);

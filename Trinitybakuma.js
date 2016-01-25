@@ -178,7 +178,6 @@ var Trinitybakuma = {
         $('#infoSpread').hide();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Trinity BAKumA", Trinitybakuma);

@@ -140,7 +140,6 @@ var Batoto = {
         mod_bar.css("height", "8px");
         mod_bar.css("margin-bottom", "0px");
         mod_bar.css("padding-top", "0px");
-
         if ($("#comic_page", doc).parent().size() > 0) {
             $("#comic_page", doc).parent().remove();
             $("<div class='AMRcomic'></div>").appendTo($(".amrcontainer", doc));
@@ -205,7 +204,6 @@ var Batoto = {
         }
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Batoto", Batoto);

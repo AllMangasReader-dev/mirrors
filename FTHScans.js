@@ -130,7 +130,6 @@ var FTHScans = {
       $("body > div:empty", doc).remove();
    }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("For The Halibut", FTHScans);

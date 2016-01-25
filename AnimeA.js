@@ -84,7 +84,7 @@ var AnimeA = {
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         $(".hca", doc).remove();
-        $(".h_contentmp", doc).empty();        
+        $(".h_contentmp", doc).empty();
         $(".h_contentmp", doc).before($("<div>").addClass("navAMR"));
         $(".h_contentmp", doc).after($("<div>").addClass("navAMR"));
     },
@@ -121,7 +121,6 @@ var AnimeA = {
         $("body > div:empty", doc).remove();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("AnimeA", AnimeA);
