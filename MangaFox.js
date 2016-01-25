@@ -189,9 +189,7 @@ var MangaFox = {
             success: function(objResponse) {
                 var div = document.createElement("div");
                 div.innerHTML = objResponse;
-                var src = $("meta[property='og:image']",
-                    div).attr("content").replace(
-                    "thumbnails/mini.", "compressed/");
+                var src = $('#image').attr('src') || $("meta[property='og:image']", div).attr("content").replace("thumbnails/mini.", "compressed/");
                 $(image).attr("src", src);
             }
         });
