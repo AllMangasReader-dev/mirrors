@@ -20,7 +20,7 @@ var MangaFox = {
             },
             success: function(objResponse) {
                 var div = document.createElement("div");
-                div.innerHTML = objResponse;
+                div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 if (objResponse.indexOf("No Manga Series") !==
                     -1) {
                     callback("Manga-Fox", []);
