@@ -128,7 +128,6 @@ var SimpleScans = {
         $("body > div:empty", e).remove()
     }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Simple Scans", SimpleScans);

@@ -95,7 +95,6 @@ var ThHour = {
             script.innerText += "$(document).unbind('keypress');";
             doc.body.appendChild(script);
         }
-
         $("#page", doc).before("<div class='navAMR'></div>");
         $("#page", doc).after("<div class='navAMR'></div>");
         $("#page", doc).css("width", "auto");
@@ -131,7 +130,6 @@ var ThHour = {
         $("body > div:empty", doc).remove();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("13Th Hour Scanlations", ThHour);

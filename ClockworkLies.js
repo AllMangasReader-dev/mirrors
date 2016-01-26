@@ -41,7 +41,6 @@ getMangaList: function (search, callback) {
 	doAfterMangaLoaded: function (doc, curUrl) {
 	}
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Clockwork Lies", ClockworkLies);

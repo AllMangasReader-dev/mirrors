@@ -1,4 +1,4 @@
-var MangaChapter = 
+var MangaChapter =
 {
     mirrorName: "MangaChapter",
     canListFullMangas: false,
@@ -21,13 +21,13 @@ var MangaChapter =
                 {
                     xhr.setRequestHeader("Cache-Control", "no-cache");
                     xhr.setRequestHeader("Pragma", "no-cache");
-                }, 
+                },
                 success: function(response)
                 {
                     var div = document.createElement('div');
                     div.innerHTML = response.replace('<img ', '<noload ');
                     $(".info_box a", div).each(function(index)
-                    {   
+                    {
                         res[res.length] = [$(this).text(), $(this).attr("href") || ""];
                     });
                     var next = false;
@@ -48,7 +48,7 @@ var MangaChapter =
             });
         };
         getMangaListRecursive(urlSearch, callback);
-    }, 
+    },
     getListChaps: function(urlManga, mangaName, obj, callback)
     {
         var res = [];
@@ -61,10 +61,10 @@ var MangaChapter =
                 {
                     xhr.setRequestHeader("Cache-Control", "no-cache");
                     xhr.setRequestHeader("Pragma", "no-cache");
-                }, 
+                },
                 success: function(response)
                 {
-                    var div = document.createElement( "div" ); 
+                    var div = document.createElement( "div" );
                     div.innerHTML = response.replace('<img ', '<noload ');
                     $(".mangadata a[title]", div).each(function(index)
                     {
@@ -98,9 +98,9 @@ var MangaChapter =
         currentChapter = currentChapter.replace(name, "");
         callback(
         {
-            "name": name.trim(), 
-            "currentChapter": currentChapter.trim(), 
-            "currentMangaURL": mangaurl.trim(), 
+            "name": name.trim(),
+            "currentChapter": currentChapter.trim(),
+            "currentMangaURL": mangaurl.trim(),
             "currentChapterURL": curUrl
         });
     },
@@ -168,7 +168,7 @@ var MangaChapter =
             success: function(objResponse)
             {
                 var div = document.createElement( "div" );
-                div.innerHTML = objResponse; 
+                div.innerHTML = objResponse;
                 var src = $("#mangaImg, #Img1", div).attr("src") || "";
                 $( image ).attr( "src", src);
             }
@@ -202,7 +202,6 @@ var MangaChapter =
         }
     }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("MangaChapter", MangaChapter);

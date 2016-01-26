@@ -177,7 +177,6 @@ var Mangajoy = {
 		return null;
 	}
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Mangajoy", Mangajoy);

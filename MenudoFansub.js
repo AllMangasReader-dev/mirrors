@@ -130,7 +130,6 @@ var MenudoFansub = {
 		$("#page", doc).css("max-width", "none");
 	},
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("MenudoFansub", MenudoFansub);

@@ -16,85 +16,94 @@ var Batoto = {
                 xhr.setRequestHeader("Pragma", "no-cache");
             },
             success: function (objResponse) {
-                var div = document.createElement("div");
+                var div       = document.createElement("div");
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
-                $("#comic_search_results .chapters_list tr a", div).each(function (index) {
-                    $.ajax({
-                        url: $(this).attr("href"),
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("Cache-Control", "no-cache");
-                            xhr.setRequestHeader("Pragma", "no-cache");
-                        },
-                        success: function (objResponse) {
-                            var divIn = document.createElement("div"),
-                                res = [];
-                            divIn.innerHTML = objResponse.replace(/<img/gi,
-                                '<noload');
-                            if ($(".lang_English:eq(-1) a:first", divIn) !==
-                                null) {
-                                res[res.length] = [$(".ipsType_pagetitle",
-                                    divIn).text().trim(), $(
-                                    ".lang_English:eq(-1) a:first",
-                                    divIn).attr('href')];
-                            }
-                            /* if ($(".chapters_list .row:not(.lang_English)", divIn).attr('href') !== null) {
-                                I couldn't test this piece of code
-                                res[res.length] = [$(".ipsType_pagetitle", divIn).text().trim(), $(this).attr('href')];
-                            }
-                            */
-                            callback("Batoto", res);
-                        }
+
+                if (objResponse.indexOf("Sorry, the page you are looking for is currently unavailable.") !== -1) {
+                    callback("Batoto", []);
+                } else {
+                    var res = [];
+                    $("#comic_search_results .chapters_list tr a[href*='/comic/']", div).each(function (index) {
+                        res[index] = [$(this).text().trim(), $(this).attr("href")];
                     });
-                });
+                    callback("Batoto", res);
+                }
             }
         });
     },
     getListChaps: function (urlManga, mangaName, obj, callback) {
         "use strict";
-        $.ajax({
-            url: urlManga,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Cache-Control", "no-cache");
-                xhr.setRequestHeader("Pragma", "no-cache");
-            },
-            success: function (objResponse) {
-                var div = document.createElement("div"),
-                    res = [];
-                div.innerHTML = objResponse.replace(/<img/gi, '<noload');
-                var res = [];
-                $(".moderation_bar:first [name='chapter_select'] option", div).each(function (index) {
-                    res[index] = [$(this).text().trim(), $(this).val()];
-                });
-                callback(res, obj);
-            }
-        });
+        if (typeof urlManga === 'undefined') {
+            //this shouldn't happen but it does :|
+            callback([['FIXME: Something went wrong...', 'http://bato.to']], obj);
+        } else if(urlManga.indexOf('http://bato.to/read/') !== -1) {
+            //let's avoid hammering the servers with dead URLs
+            callback([['FIXME: Using old url format', 'http://bato.to']], obj);
+        } else {
+            $.ajax({
+                url: urlManga,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Cache-Control", "no-cache");
+                    xhr.setRequestHeader("Pragma", "no-cache");
+                },
+                success: function (objResponse) {
+                    var div       = document.createElement("div"),
+                        res = [];
+                    div.innerHTML = objResponse.replace(/<img/gi, '<noload');
+
+                    var res       = [];
+                    $('.chapter_row', div).each(function (index) {
+                        var ch    = $(this).find('td:eq(0) > a');
+                        var title = $(ch).text().trim(),
+                            url   = $(ch).attr('href');
+                        //"http://bato.to/areader?id="+$(ch).attr('href').split('#')[1]+"&p=1"
+                        res[res.length] = [title, url];
+                    });
+                    callback(res, obj);
+                }
+            });
+        }
     },
     getInformationsFromCurrentPage: function (doc, curUrl, callback) {
-        var mod_bar = $(".moderation_bar:first", doc);
-        var chapter = $("[name='chapter_select'] option:selected", mod_bar);
-        var manga = $("ul:first-child a", mod_bar);
-        var name = manga.text();
-        var group = $("select[name='group_select']:first option:selected", doc).text();
-        if (group && group != "") {
-            var gps = group.split(" ");
-            var lang;
-            var i = gps.length - 1;
-            while ((lang = gps[i]) == "" && i >= 0) {
-                i--;
+        //Delay until loaded.
+        var dfd = $.Deferred();
+        var attempts = 0;
+        var checkSelector = setInterval(function () {
+            if ($('#reader', doc).text() !== 'Loading...') {
+                dfd.resolve();
+                console.log("forever loading");
+                clearInterval(checkSelector);
+            } else {
+                //FIXME: This fails tests for some reason. Probably due to AJAX nonsense.
             }
-            if (lang != "English" && lang != "") {
-                name += " (" + lang + ")";
+        }, 1000);
+        dfd.done(function () {
+            var mod_bar = $(".moderation_bar:first", doc);
+            var chapter = $("[name='chapter_select'] option:selected", mod_bar);
+            var manga   = $("ul:first-child a:eq(0)", mod_bar);
+            var name    = manga.text();
+            var group   = $("select[name='group_select']:first option:selected", doc).text();
+            if (group && group != "") {
+                var gps = group.split(" ");
+                var lang;
+                var i   = gps.length - 1;
+                while ((lang = gps[i]) == "" && i >= 0) {
+                    i--;
+                }
+                if (lang != "English" && lang != "") {
+                    name += " (" + lang + ")";
+                }
             }
-        }
-        var currentChapter = chapter.text();
-        var pos = $("[name='chapter_select'] option:last", mod_bar).val().lastIndexOf("/");
-        var currentMangaURL = $("[name='chapter_select'] option:last", mod_bar).val();
-        var currentChapterURL = chapter.val();
-        callback({
-            "name": name,
-            "currentChapter": currentChapter,
-            "currentMangaURL": currentMangaURL,
-            "currentChapterURL": currentChapterURL
+            var currentChapter    = chapter.text();
+            var pos               = $("[name='chapter_select'] option:last", mod_bar).val().lastIndexOf("/");
+            var currentMangaURL   = $(manga).attr('href');
+            var currentChapterURL = chapter.val();
+            callback({
+                "name": name,
+                "currentChapter": currentChapter,
+                "currentMangaURL": currentMangaURL,
+                "currentChapterURL": currentChapterURL
+            });
         });
     },
     getListImages: function (doc, curUrl) {
@@ -102,7 +111,11 @@ var Batoto = {
         var res = [];
         if ($(".moderation_bar:first #page_select option", doc).size() > 0) {
             $(".moderation_bar:first #page_select option", doc).each(function (index) {
-                res[index] = $(this).val();
+                var split = $(this).val().split('#')[1].split('_'),
+                    id    = split[0],
+                    page  = split[1] || 1;
+
+                res[index] = "http://bato.to/areader?id="+id+"&p="+page;
             });
         } else {
             $('#content > div > img', doc).each(function (index) {
@@ -124,8 +137,7 @@ var Batoto = {
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
         "use strict";
-        return ($("#comic_page", doc).size() > 0 || $("#full_image", doc).size() > 0 || curUrl.indexOf(/read/) !==
-            -1);
+        return ($("#comic_page", doc).size() > 0 || $("#full_image", doc).size() > 0 || curUrl.search(/\/reader#/) !== -1);
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         "use strict";
@@ -175,9 +187,9 @@ var Batoto = {
             $.ajax({
                 url: urlImg,
                 success: function (objResponse) {
-                    var div = document.createElement("div");
-                    div.innerHTML = objResponse;
-                    var src = $("img#comic_page", div).attr("src");
+                    var div       = document.createElement("div");
+                    div.innerHTML = objResponse.replace(/<img/gi, '<noload');;
+                    var src       = $("noload#comic_page", div).attr("src");
                     $(image).attr("src", src);
                 }
             });
@@ -199,7 +211,7 @@ var Batoto = {
         $("#full_image", doc).css("display", "");
         $("#content", doc).css("width", "auto !important");
         if (typeof doc.createElement === 'function') {
-            var script = doc.createElement('script');
+            var script       = doc.createElement('script');
             script.innerText = "Hotkeys.hotkeys.clear();";
             doc.body.appendChild(script);
         }
@@ -208,5 +220,5 @@ var Batoto = {
 
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
-	registerMangaObject("Batoto", Batoto);
+    registerMangaObject("Batoto", Batoto);
 }

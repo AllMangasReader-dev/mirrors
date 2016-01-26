@@ -20,7 +20,7 @@ var MangaFox = {
             },
             success: function(objResponse) {
                 var div = document.createElement("div");
-                div.innerHTML = objResponse;
+                div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 if (objResponse.indexOf("No Manga Series") !==
                     -1) {
                     callback("Manga-Fox", []);
@@ -97,7 +97,7 @@ var MangaFox = {
         "use strict";
         var str = $('#series > strong a', doc).text(); // dom lookups are expensive!
         var name = $('#related > h3 a', doc).text() || str.substring(0,
-            str.length - 6); //falls through #related, into #series 
+            str.length - 6); //falls through #related, into #series
         var currentChapter = $("#series h1", doc).text();
         var url = curUrl;
         var posSl5 = 0;
@@ -189,9 +189,7 @@ var MangaFox = {
             success: function(objResponse) {
                 var div = document.createElement("div");
                 div.innerHTML = objResponse;
-                var src = $("meta[property='og:image']",
-                    div).attr("content").replace(
-                    "thumbnails/mini.", "compressed/");
+                var src = $('#image').attr('src') || $("meta[property='og:image']", div).attr("content").replace("thumbnails/mini.", "compressed/");
                 $(image).attr("src", src);
             }
         });
@@ -209,7 +207,6 @@ var MangaFox = {
         $("body > div:empty", doc).remove();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Manga-Fox", MangaFox);

@@ -148,7 +148,6 @@ var OurManga = {
         $("body > div:empty", e).remove()
     }
 }
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Our Manga", OurManga);

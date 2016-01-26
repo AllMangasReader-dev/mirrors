@@ -140,7 +140,6 @@ var Imangascans = {
         $("body", doc).css('background-color', '#f5f5f5');
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Imangascans", Imangascans);

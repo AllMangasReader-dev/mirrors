@@ -3,7 +3,6 @@ var MangaExceed={mirrorName:"Manga Exceed",canListFullMangas:false,mirrorIcon:"i
 return null;},previousChapterUrl:function(select,doc,curUrl){if($(select).children("option:selected").next().size()!=0){return $(select).children("option:selected").next().val();}
 return null;},getImageFromPageAndWrite:function(urlImg,image,doc,curUrl){$.ajax({url:urlImg,success:function(objResponse)
 {var div=document.createElement("div");div.innerHTML=objResponse;$(image).attr('src',$('#contentInner3 img',div).attr('src'));}});},isImageInOneCol:function(img,doc,curUrl){return false;},getMangaSelectFromPage:function(doc,curUrl){return null;},doAfterMangaLoaded:function(doc,curUrl){$("body > div:empty",doc).remove();}}
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Manga Exceed", MangaExceed);

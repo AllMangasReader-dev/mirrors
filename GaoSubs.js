@@ -139,7 +139,6 @@ var GaoSubs = {
         $("body > div:empty", doc).remove();
     }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Gao-subs", GaoSubs);

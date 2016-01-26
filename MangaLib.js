@@ -136,7 +136,6 @@ var MangaLib = {
     $(".reader_page_holder .AMRtable tr td", doc).css("background-color", "black");
   }
 };
-
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
 	registerMangaObject("Manga Library", MangaLib);
