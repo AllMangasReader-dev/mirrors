@@ -10,7 +10,7 @@ var Batoto = {
     getMangaList: function (search, callback) {
         "use strict";
         $.ajax({
-            url: 'http://bato.to/search?name=' + search + '&name_cond=c',
+            url: '//bato.to/search?name=' + search + '&name_cond=c',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
@@ -35,10 +35,10 @@ var Batoto = {
         "use strict";
         if (typeof urlManga === 'undefined') {
             //this shouldn't happen but it does :|
-            callback([['FIXME: Something went wrong...', 'http://bato.to']], obj);
-        } else if(urlManga.indexOf('http://bato.to/read/') !== -1) {
+            callback([['FIXME: Something went wrong...', '//bato.to']], obj);
+        } else if(urlManga.indexOf('//bato.to/read/') !== -1) {
             //let's avoid hammering the servers with dead URLs
-            callback([['FIXME: Using old url format', 'http://bato.to']], obj);
+            callback([['FIXME: Using old url format', '//bato.to']], obj);
         } else {
             //Batoto has bot detection which can cause "An error occurred." page to appear when loading too many pages at once.
             //To try and avoid this, we have a random delay between 2-5s before the ajax is executed.
@@ -119,7 +119,7 @@ var Batoto = {
                     id    = split[0],
                     page  = split[1] || 1;
 
-                res[index] = "http://bato.to/areader?id="+id+"&p="+page;
+                res[index] = "//bato.to/areader?id="+id+"&p="+page;
             });
         } else {
             $('#content > div > img', doc).each(function (index) {
