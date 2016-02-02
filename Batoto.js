@@ -40,28 +40,32 @@ var Batoto = {
             //let's avoid hammering the servers with dead URLs
             callback([['FIXME: Using old url format', 'http://bato.to']], obj);
         } else {
-            $.ajax({
-                url: urlManga,
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Cache-Control", "no-cache");
-                    xhr.setRequestHeader("Pragma", "no-cache");
-                },
-                success: function (objResponse) {
-                    var div       = document.createElement("div"),
-                        res = [];
-                    div.innerHTML = objResponse.replace(/<img/gi, '<noload');
+            //Batoto has bot detection which can cause "An error occurred." page to appear when loading too many pages at once.
+            //To try and avoid this, we have a random delay between 2-5s before the ajax is executed.
+            setTimeout(function(){
+                $.ajax({
+                    url: urlManga,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Cache-Control", "no-cache");
+                        xhr.setRequestHeader("Pragma", "no-cache");
+                    },
+                    success: function (objResponse) {
+                        var div       = document.createElement("div"),
+                            res = [];
+                        div.innerHTML = objResponse.replace(/<img/gi, '<noload');
 
-                    var res       = [];
-                    $('.chapter_row', div).each(function (index) {
-                        var ch    = $(this).find('td:eq(0) > a');
-                        var title = $(ch).text().trim(),
+                        var res       = [];
+                        $('.chapter_row', div).each(function (index) {
+                            var ch    = $(this).find('td:eq(0) > a');
+                            var title = $(ch).text().trim(),
                             url   = $(ch).attr('href');
-                        //"http://bato.to/areader?id="+$(ch).attr('href').split('#')[1]+"&p=1"
-                        res[res.length] = [title, url];
-                    });
-                    callback(res, obj);
-                }
-            });
+                            //"//bato.to/areader?id="+$(ch).attr('href').split('#')[1]+"&p=1"
+                            res[res.length] = [title, url];
+                        });
+                        callback(res, obj);
+                    }
+                });
+            }, 2000 + (Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000));
         }
     },
     getInformationsFromCurrentPage: function (doc, curUrl, callback) {
