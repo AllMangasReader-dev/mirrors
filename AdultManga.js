@@ -49,8 +49,8 @@ AdultManga = {
         var res = [];
         $("#mangaResults td a:first-child", div).each(function (index) {
           var tit = $($(this).contents()[0]).text();
-          var titsp = tit.split("|");
-          res[res.length] = [titsp[0].trim(), "http://mintmanga.com" + $(this).attr("href")];
+          tit = tit.split("|");
+          res[res.length] = [tit[0].trim(), "http://mintmanga.com" + $(this).attr("href")];
         });
         callback("AdultManga", res);
       }
@@ -116,8 +116,9 @@ AdultManga = {
     matches = matches.match(/rm_h\.init\(.*?\]\]/);
     if (matches) {
       matches = matches[0].slice(10);
-      var b = eval(matches);
-      for (var i = 0; i < b.length; i ++) {
+      matches = matches.split("'").join('"');
+      var b = JSON.parse(matches);
+      for (var i = 0; i < b.length; i++) {
         res[i] = b[i][1] + b[i][0] + b[i][2];
       }
     }
