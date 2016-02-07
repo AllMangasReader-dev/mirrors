@@ -4,12 +4,12 @@ var ReadManga = {
 	mirrorIcon: "img/readmanga.png",
 	languages: "ru",
 	isMe: function (url) {
-		return (url.indexOf("readmanga.me/") != -1);
+		return (url.indexOf("readmanga.me/") !== -1);
 	},
 	getMangaList: function (search, callback) {
 		$.ajax({
 			url: "http://readmanga.me/search",
-			type: 'POST',
+			type: "POST",
 			data: {
 				q: search
 			},
@@ -23,8 +23,8 @@ var ReadManga = {
 				var res = [];
 				$("#mangaResults td a:first-child", div).each(function (index) {
 					var tit = $($(this).contents()[0]).text();
-					titsp = tit.split("|");
-					res[res.length] = [titsp[0].trim(), "http://readmanga.me" + $(this).attr("href")];
+					tit = tit.split("|");
+					res[res.length] = [tit[0].trim(), "http://readmanga.me" + $(this).attr("href")];
 				});
 				callback("ReadManga", res);
 			}
@@ -41,11 +41,11 @@ var ReadManga = {
 				var div = document.createElement("div");
 				div.innerHTML = objResponse;
 				var res = [];
-				var mng_nm = (urlManga.split('/')).pop();
+				var mng_nm = (urlManga.split("/")).pop();
 				$("div.expandable td > a", div).each(function (index) {
 					var str = $(this).attr("href");
-					str = str.split('/')[1];
-					if (str == mng_nm) {
+					str = str.split("/")[1];
+					if (str === mng_nm) {
 						res[res.length] = [$($(this).contents()[0]).text(), "http://readmanga.me" + $(this).attr("href")];
 					}
 				});
@@ -71,8 +71,9 @@ var ReadManga = {
 		matches = matches.match(/rm_h\.init\(.*?\]\]/);
 		if (matches) {
 			matches = matches[0].slice(10);
-			b = eval(matches);
-			for (i = 0; i < b.length; i++) {
+			matches = matches.split("'").join('"');
+			var b = JSON.parse(matches);
+			for (var i = 0; i < b.length; i++) {
 				res[i] = b[i][1] + b[i][0] + b[i][2];
 			}
 		}
@@ -107,19 +108,19 @@ var ReadManga = {
 		$("#mangaBox", doc).after($("<div class='navAMR'></div>"));
 	},
 	nextChapterUrl: function (select, doc, curUrl) {
-		if ($(select).children("option:selected").prev().size() != 0) {
+		if ($(select).children("option:selected").prev().size() !== 0) {
 			return $(select).children("option:selected").prev().val();
 		}
 		return null;
 	},
 	previousChapterUrl: function (select, doc, curUrl) {
-		if ($(select).children("option:selected").next().size() != 0) {
+		if ($(select).children("option:selected").next().size() !== 0) {
 			return $(select).children("option:selected").next().val();
 		}
 		return null;
 	},
 	getImageFromPageAndWrite: function (urlImg, image, doc, curUrl) {
-		$(image).attr("src", urlImg)
+		$(image).attr("src", urlImg);
 	},
 	isImageInOneCol: function (img, doc, curUrl) {
 		return false;
@@ -132,10 +133,10 @@ var ReadManga = {
 	},
 	doAfterMangaLoaded: function (doc, curUrl) {
 		$("body > div:empty", doc).remove();
-	},
-}
+	}
+};
 
 // Call registerMangaObject to be known by includer
-if (typeof registerMangaObject == 'function') {
+if (typeof registerMangaObject === "function") {
 	registerMangaObject("ReadManga", ReadManga);
 }
