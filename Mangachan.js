@@ -112,11 +112,9 @@ var Mangachan = {
 	getListImages : function(doc, curUrl2) {
 		//This function runs in the DOM of the current consulted page.
 		var res = [];
-		var matches = doc.documentElement.innerHTML;
-		matches = matches.match(/fullimg\"\:.*/);
+		var matches = doc.documentElement.innerHTML.match(/fullimg\"\:.*/)[0];
 		if (matches) {
-			matches = matches[0].slice(9);
-			res = eval(matches);
+			res = matches.match(/[(http(s)?):\/\/(www\.)?a-z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-z0-9@:%_\+.~#?&//=]*)/ig);
 		}
 		return res;
 	},
@@ -158,12 +156,9 @@ var Mangachan = {
 		$("#loading", doc).remove();
 		$("#info_help", doc).remove();
 		$("#image", doc).empty();
-
 		$("#image", doc).css("display", "");
-
 		$("#image", doc).before($("<div class='navAMR'></div>"));
 		$("#image", doc).after($("<div class='navAMR'></div>"));
-		
 		if (typeof doc.createElement === "function") {
 			var script = doc.createElement("script");
 			script.innerText = "$(document).unbind('keydown');";
@@ -175,7 +170,7 @@ var Mangachan = {
 	//The select containing the mangas list next to the button is passed in argument
 	nextChapterUrl : function(select, doc, curUrl) {
 		//This function runs in the DOM of the current consulted page.
-		if ($(select).children("option:selected").prev().size() != 0) {
+		if ($(select).children("option:selected").prev().size() !== 0) {
 			return $(select).children("option:selected").prev().val();
 		}
 		return null;
@@ -185,7 +180,7 @@ var Mangachan = {
 	//The select containing the mangas list next to the button is passed in argument
 	previousChapterUrl : function(select, doc, curUrl) {
 		//This function runs in the DOM of the current consulted page.
-		if ($(select).children("option:selected").next().size() != 0) {
+		if ($(select).children("option:selected").next().size() !== 0) {
 			return $(select).children("option:selected").next().val();
 		}
 		return null;
@@ -228,6 +223,6 @@ var Mangachan = {
 };
 
 // Call registerMangaObject to be known by includer
-if (typeof registerMangaObject == "function") {
+if (typeof registerMangaObject === "function") {
 	registerMangaObject("Mangachan", Mangachan);
 }
