@@ -25,7 +25,7 @@ AdultManga = {
 
   //Return true if the url corresponds to the mirror
   isMe: function (url) {
-    return (url.indexOf("mintmanga.com/") != - 1);
+    return (url.indexOf("mintmanga.com/") !== -1);
   },
 
   //Return the list of all or part of all mangas from the mirror
@@ -35,7 +35,7 @@ AdultManga = {
   getMangaList: function (search, callback) {
     $.ajax({
       url: "http://mintmanga.com/search",
-      type: 'POST',
+      type: "POST",
       data: {
         q: search
       },
@@ -72,12 +72,12 @@ AdultManga = {
         var div = document.createElement("div");
         div.innerHTML = objResponse;
         var res = [];
-        var mng_nm = (urlManga.split('/')).pop();
+        var mng_nm = (urlManga.split("/")).pop();
         $("div.expandable td > a", div).each(
           function (index) {
             var str = $(this).attr("href");
-            str = str.split('/')[1];
-            if (str == mng_nm) {
+            str = str.split("/")[1];
+            if (str === mng_nm) {
               res[res.length] = [$($(this).contents()[0]).text(), "http://mintmanga.com" + $(this).attr("href")];
             }
           }
@@ -120,7 +120,6 @@ AdultManga = {
       for (var i = 0; i < b.length; i ++) {
         res[i] = b[i][1] + b[i][0] + b[i][2];
       }
-      ;
     }
     return res;
   },
@@ -175,7 +174,7 @@ AdultManga = {
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl: function (select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().size() !== 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;
@@ -185,7 +184,7 @@ AdultManga = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl: function (select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().size() !== 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;
@@ -197,7 +196,7 @@ AdultManga = {
   //If getListImages function returns the src of the image, just do $( image ).attr( "src", urlImg );
   getImageFromPageAndWrite: function (urlImg, image, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    $(image).attr("src", urlImg)
+    $(image).attr("src", urlImg);
   },
 
   //If it is possible to know if an image is a credit page or something which
@@ -227,6 +226,6 @@ AdultManga = {
 };
 
 // Call registerMangaObject to be known by includer
-if (typeof registerMangaObject == 'function') {
+if (typeof registerMangaObject === "function") {
   registerMangaObject("AdultManga", AdultManga);
 }
