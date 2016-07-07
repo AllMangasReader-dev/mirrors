@@ -46,6 +46,7 @@ var MangaHere = {
             },
             success: function (objResponse) {
                 var div = document.createElement("div");
+                objResponse = objResponse.replace(/<img\b[^>]*>/ig, ''); //avoid loading cover image
                 div.innerHTML = objResponse;
                 var res = [];
                 $(".detail_list ul li span.left a", div).each(function (index) {
