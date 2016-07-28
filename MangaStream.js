@@ -47,7 +47,7 @@ var MangaStream = {
     },
     getInformationsFromCurrentPage: function (doc, curUrl, callback) {
         "use strict";
-        var name = $('.dropdown-toggle .visible-desktop', doc)[0].innerText,
+        var name = $('.dropdown-toggle .hidden-sm', doc)[0].innerText,
             currentChapter = $('.btn-group .dropdown-toggle', doc)[0].innerText.replace(name, '').trim(),
             currentMangaURL = $('.btn-group .dropdown-menu:first a:last', doc).attr('href'),
             currentChapterURL = $('.dropdown-menu:last a:first', doc).attr('href');
