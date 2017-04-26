@@ -5,7 +5,7 @@ var MangaStream = {
     languages: "en",
     isMe: function (url) {
         "use strict";
-        return (url.match(/(mangastream|readms).com/g) !== null);
+        return (url.match(/(mangastream|readms).(com|net)/g) !== null);
     },
     getMangaList: function (search, callback) {
         "use strict";
