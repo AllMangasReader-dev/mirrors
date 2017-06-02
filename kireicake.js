@@ -84,7 +84,7 @@ var kireicake = {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
-        return (curUrl.search('reader.kireicake.com/reader/read/') > -1);
+        return (curUrl.search('reader.kireicake.com/read/') > -1);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         if (typeof doc.createElement === 'function') {
