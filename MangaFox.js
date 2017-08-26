@@ -190,7 +190,10 @@ var MangaFox = {
                 var div = document.createElement("div");
                 div.innerHTML = objResponse;
                 var src = $('#image').attr('src') || $("img[id='image']", div).attr("src");
-		$(image).attr("src", src);
+		        $(image).attr("src", src);
+            },
+            error: function() {
+                $(image).attr("src", "");
             }
         });
     },
