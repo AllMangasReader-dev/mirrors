@@ -187,9 +187,7 @@ var MangaFox = {
         $.ajax({
             url: urlImg,
             success: function(objResponse) {
-                var div = document.createElement("div");
-                div.innerHTML = objResponse;
-                var src = $('#image').attr('src') || $("img[id='image']", div).attr("src");
+                var src = $('#image', objResponse).attr('src');
 		        $(image).attr("src", src);
             },
             error: function() {
