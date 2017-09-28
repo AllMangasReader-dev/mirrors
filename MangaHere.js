@@ -91,7 +91,7 @@ var MangaHere = {
         //This function runs in the DOM of the current consulted page.
         var res = [];
         $("select.wid60:first option", doc).each(function (index) {
-            res[res.length] = $(test).context.URL;
+            res[res.length] = "https:" + $(this).val();
         });
         return res;
     },
