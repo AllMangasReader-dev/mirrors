@@ -17,7 +17,7 @@ var MangaHere = {
     //This function must call callback("Mirror name", [returned list]);
     getMangaList: function (search, callback) {
         $.ajax({
-            url: "http://www.mangahere.co/search.php?name=" + search,
+            url: "https://www.mangahere.co/search.php?name=" + search,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
@@ -27,7 +27,7 @@ var MangaHere = {
                 div.innerHTML = objResponse;
                 var res = [];
                 $(".result_search dl dt a:first-child", div).each(function (index) {
-                    res[res.length] = [$(this).text().trim(), $(this).attr("href")];
+                    res[res.length] = [$(this).text().trim(), this.href];
                 });
                 callback("Manga Here", res);
             }
@@ -50,7 +50,8 @@ var MangaHere = {
                 div.innerHTML = objResponse;
                 var res = [];
                 $(".detail_list ul li span.left a", div).each(function (index) {
-                    res[res.length] = [$(this).text().trim(), $(this).attr("href")];
+                    url = this.href.replace("chrome-extension", "https")
+                    res[res.length] = [$(this).text().trim(), url];
                 });
                 callback(res, obj);
             }
@@ -72,9 +73,9 @@ var MangaHere = {
             name = name.substr(0, name.length - 5).trim();
         }
         currentChapter = $($(".readpage_top .title a", doc)[0]).text();
-        currentChapterURL = $($(".readpage_top .title a", doc)[0]).attr("href");
-		console.log(currentChapterURL);
-        currentMangaURL = $($(".readpage_top .title a", doc)[1]).attr("href");
+        currentChapterURL = $(".readpage_top .title a", doc)[0].href;
+        console.log(currentChapterURL);
+        currentMangaURL = $(".readpage_top .title a", doc)[1].href;
         callback({
             "name": name,
             "currentChapter": currentChapter,
@@ -119,9 +120,9 @@ var MangaHere = {
     //This method is called before displaying full chapters in the page
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
-		$("#viewer", doc).empty().append($("<div class='amrcontainer'></div>"));
-		$(".go_page.clearfix", doc).empty();
-		$("<div class='navAMR widepage'></div>").appendTo($(".amrcontainer", doc));
+        $("#viewer", doc).empty().append($("<div class='amrcontainer'></div>"));
+        $(".go_page.clearfix", doc).empty();
+        $("<div class='navAMR widepage'></div>").appendTo($(".amrcontainer", doc));
         $("<div class='scanAMR widepage'></div>").appendTo($(".amrcontainer", doc));
         $("<div class='navAMR widepage'></div>").appendTo($(".amrcontainer", doc));
     },
@@ -176,13 +177,13 @@ var MangaHere = {
     doAfterMangaLoaded: function (doc, curUrl) {
         //This function runs in the DOM of the current consulted page.
         $("body > div:empty", doc).remove();
-		var script = doc.createElement('script');
+        var script = doc.createElement('script');
         script.innerText = "Hotkeys.hotkeys.clear();";
         doc.body.appendChild(script);
-		$(".spanForImg").css("text-align", "left");
+        $(".spanForImg").css("text-align", "left");
     }
 };
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
-	registerMangaObject("Manga Here", MangaHere);
+    registerMangaObject("Manga Here", MangaHere);
 }
