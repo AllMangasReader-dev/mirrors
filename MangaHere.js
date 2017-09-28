@@ -27,7 +27,8 @@ var MangaHere = {
                 div.innerHTML = objResponse;
                 var res = [];
                 $(".result_search dl dt a:first-child", div).each(function (index) {
-                    res[res.length] = [$(this).text().trim(), this.href];
+                    url = this.href.replace("chrome-extension", "https")
+                    res[res.length] = [$(this).text().trim(), url];
                 });
                 callback("Manga Here", res);
             }
@@ -73,9 +74,9 @@ var MangaHere = {
             name = name.substr(0, name.length - 5).trim();
         }
         currentChapter = $($(".readpage_top .title a", doc)[0]).text();
-        currentChapterURL = $(".readpage_top .title a", doc)[0].href;
+        currentChapterURL = $(".readpage_top .title a", doc)[0].href.replace("chrome-extension", "https");
         console.log(currentChapterURL);
-        currentMangaURL = $(".readpage_top .title a", doc)[1].href;
+        currentMangaURL = $(".readpage_top .title a", doc)[1].href.replace("chrome-extension", "https");
         callback({
             "name": name,
             "currentChapter": currentChapter,
@@ -90,7 +91,7 @@ var MangaHere = {
         //This function runs in the DOM of the current consulted page.
         var res = [];
         $("select.wid60:first option", doc).each(function (index) {
-            res[res.length] = $(this).val();
+            res[res.length] = $(test).context.URL;
         });
         return res;
     },
