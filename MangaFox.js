@@ -85,7 +85,7 @@ var MangaFox = {
                                         1);
                             }
                             res[res.length] = [tit.trim(),
-                                curChapURL
+                                "http:" + curChapURL
                             ];
                         }
                     });
@@ -188,7 +188,7 @@ var MangaFox = {
             url: urlImg,
             success: function(objResponse) {
                 var src = $('#image', objResponse).attr('src');
-		        $(image).attr("src", src);
+                $(image).attr("src", src);
             },
             error: function() {
                 $(image).attr("src", "");
@@ -210,5 +210,5 @@ var MangaFox = {
 };
 // Call registerMangaObject to be known by includer
 if (typeof registerMangaObject == 'function') {
-	registerMangaObject("Manga-Fox", MangaFox);
+    registerMangaObject("Manga-Fox", MangaFox);
 }
