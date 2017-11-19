@@ -3,11 +3,11 @@ var MangaInn = {
     canListFullMangas : false,
     languages : "en",
     isMe : function (url) {
-        return (url.indexOf("mangainn.me/") !== -1);
+        return (url.indexOf("mangainn.net/") !== -1);
     },
     getMangaList : function (search, callback) {
         $.ajax({
-            url : "http://www.mangainn.me/advresults",
+            url : "http://www.mangainn.net/advresults",
             type : 'POST',
             data : {
                 "seriestype" : "c",
@@ -26,7 +26,7 @@ var MangaInn = {
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 var res = [];
                 $(".content .TurqHeadLabel", div).each(function (index) {
-                    res[res.length] = [$(this).text().trim(), 'http://www.mangainn.me/manga/' + $(this).attr("onclick").toString().replace("function onclick(event) {", "").replace("MangaInfo", "").replace("}", "").replace("('", "").replace("')", "").trim()];
+                    res[res.length] = [$(this).text().trim(), 'http://www.mangainn.net/manga/' + $(this).attr("onclick").toString().replace("function onclick(event) {", "").replace("MangaInfo", "").replace("}", "").replace("('", "").replace("')", "").trim()];
                 });
                 res.sort(function (a, b) {
                     return ((a[0].toLowerCase() < b[0].toLowerCase()) ? -1 : ((a[0] === b[0]) ? 0 : 1));
@@ -59,13 +59,13 @@ var MangaInn = {
         });
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
-        return (curUrl.search('www.mangainn.me/manga/chapter') > -1);
+        return (curUrl.search('www.mangainn.net/manga/chapter') > -1);
     },
     getInformationsFromCurrentPage : function (doc, curUrl, callback) {
         var name = $('#gotoMangaInfo', doc).text();
         var currentChapter = $('#chapters option:selected', doc).text().replace(name, '').trim();
         var currentMangaURL = $('#gotoMangaInfo', doc).attr('href');
-      var currentChapterURL = "http://www.mangainn.me/manga/chapter/" + $("#chapters option:selected", doc).val();
+      var currentChapterURL = "http://www.mangainn.net/manga/chapter/" + $("#chapters option:selected", doc).val();
         callback({
             "name" : name,
             "currentChapter" : currentChapter,
@@ -113,13 +113,13 @@ var MangaInn = {
     },
     nextChapterUrl : function (select, doc, curUrl) {
         if ($(select).children("option:selected").next().size() !== 0) {
-            return "http://www.mangainn.me/manga/chapter/" + $(select).children("option:selected").next().val();
+            return "http://www.mangainn.net/manga/chapter/" + $(select).children("option:selected").next().val();
         }
         return null;
     },
     previousChapterUrl : function (select, doc, curUrl) {
         if ($(select).children("option:selected").prev().size() !== 0) {
-            return "http://www.mangainn.me/manga/chapter/" + $(select).children("option:selected").prev().val();
+            return "http://www.mangainn.net/manga/chapter/" + $(select).children("option:selected").prev().val();
         }
         return null;
     },
