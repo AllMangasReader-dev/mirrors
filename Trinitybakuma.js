@@ -118,7 +118,7 @@ var Trinitybakuma = {
         "use strict";
         if (typeof doc.createElement === 'function') {
             var script = doc.createElement('script');
-            script.innerText = "$(document).unbind('keyup');";
+            script.innerText = "$(document).off('keyup');";
             doc.body.appendChild(script);
         }
         $("#theManga", doc).empty();

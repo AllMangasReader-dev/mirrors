@@ -162,8 +162,8 @@ var Titania = {
     $("<div class='navAMR'></div>").appendTo($("#amrManga", doc));
     $(".navAMR", doc).css("text-align", "center");
 	script = doc.createElement('script');
-	script.innerText  = "$(document).unbind('keyup');\n";
-	script.innerText += "$(document).unbind('hashchange');";
+	script.innerText  = "$(document).off('keyup');\n";
+	script.innerText += "$(document).off('hashchange');";
 	doc.body.appendChild(script);
   },
   //This method is called to fill the next button's url in the manga site navigation bar

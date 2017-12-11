@@ -89,7 +89,7 @@ var SimpleScans = {
     doSomethingBeforeWritingScans: function (e, t) {
         if (typeof e.createElement === 'function') {
             script = e.createElement("script");
-            script.innerText = "$(document).unbind('keydown');";
+            script.innerText = "$(document).off('keydown');";
             e.body.appendChild(script);
         }
         $("#page", e).css("max-width", "none");

@@ -95,7 +95,7 @@ var Redhawkscans = {
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         if (typeof doc.createElement === 'function') {
             var script = doc.createElement('script');
-            script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).unbind('keydown');});";
+            script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).off('keydown');});";
             script.type = 'text/rocketscript';
             doc.body.appendChild(script);
         }

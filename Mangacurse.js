@@ -132,7 +132,7 @@ var Mangacurse = {
   //This method is called before displaying full chapters in the page
   doSomethingBeforeWritingScans : function(doc, curUrl) {
 	script = doc.createElement('script');
-	script.innerText = "$(document).unbind('keydown');";
+	script.innerText = "$(document).off('keydown');";
 	doc.body.appendChild(script);
     $("#page", doc).before($("<div class='navAMR'></div>"));
     $("#page", doc).after($("<div class='navAMR'></div>"));

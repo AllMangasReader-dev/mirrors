@@ -94,12 +94,12 @@ var S2scans = {
       script = doc.createElement('script');
       script.type = "text/javascript";
       script.onload = OnceLoaded;
-      script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).unbind('keydown');});";
-      script.innerText += "function OnceLoaded() {changePage = function(){};$(document).ready(function(){$(document).unbind('keydown');});}"
+      script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).off('keydown');});";
+      script.innerText += "function OnceLoaded() {changePage = function(){};$(document).ready(function(){$(document).off('keydown');});}"
       doc.body.appendChild(script);
       function OnceLoaded() {
            changePage = function(){};
-           $(document).ready(function(){$(document).unbind('keydown');});
+           $(document).ready(function(){$(document).off('keydown');});
       }
     }
     $("#page", doc).css("max-width", "none");

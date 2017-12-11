@@ -160,7 +160,7 @@ var HimawariMangas =
 		if (typeof doc.createElement == 'function')
 		{
 			script = doc.createElement('script');
-			script.innerText = "$(document).unbind('keyup');";
+			script.innerText = "$(document).off('keyup');";
 			doc.body.appendChild(script);
 		}
 		$("#theManga", doc).empty();

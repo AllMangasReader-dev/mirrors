@@ -89,7 +89,7 @@ var ExtrasScans = {
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         if (typeof doc.createElement === 'function') {
             var script = doc.createElement('script');
-            script.innerText = "$(document).unbind('keydown');";
+            script.innerText = "$(document).off('keydown');";
             script.type = "text/javascript";
             doc.body.appendChild(script);
         }

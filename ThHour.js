@@ -90,9 +90,9 @@ var ThHour = {
         if (typeof doc.createElement === 'function') {
             var script = doc.createElement('script');
             script.type = 'text/javascript';
-            script.innerText = "$(document).unbind('keyup');";
-            script.innerText += "$(document).unbind('keydown');";
-            script.innerText += "$(document).unbind('keypress');";
+            script.innerText = "$(document).off('keyup');";
+            script.innerText += "$(document).off('keydown');";
+            script.innerText += "$(document).off('keypress');";
             doc.body.appendChild(script);
         }
         $("#page", doc).before("<div class='navAMR'></div>");

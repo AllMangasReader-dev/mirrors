@@ -92,7 +92,7 @@ var FTHScans = {
    },
    doSomethingBeforeWritingScans : function (doc, curUrl) {
       script = doc.createElement('script');
-      script.innerText = "$(document).unbind('keydown');";
+      script.innerText = "$(document).off('keydown');";
       doc.body.appendChild(script);
       $("#page", doc).css("max-width", "none");
       $("#page", doc).css("width", "100%");

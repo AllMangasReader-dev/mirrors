@@ -126,7 +126,7 @@ var AngelScanlator =
 	doSomethingBeforeWritingScans: function(doc, curUrl)
 	{
 		script = doc.createElement('script');
-		script.innerText = "$(document).unbind('keydown');";
+		script.innerText = "$(document).off('keydown');";
 		doc.body.appendChild(script);
 		$('td.mid', doc).empty();
 		$('td.mid', doc).append($("<div class='navAMR'></div>"));

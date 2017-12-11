@@ -137,7 +137,7 @@ var MCReborn = {
   //This method is called before displaying full chapters in the page
   doSomethingBeforeWritingScans : function(doc, curUrl) {
 	script = doc.createElement('script');
-	script.innerText = "$(document).unbind('keydown');";
+	script.innerText = "$(document).off('keydown');";
 	doc.body.appendChild(script);
 	$('#page').css("max-width", (screen.width - 150) + 'px');
     $("#page", doc).before($("<div class='navAMR'></div>"));
