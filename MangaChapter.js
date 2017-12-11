@@ -146,7 +146,7 @@ var MangaChapter =
     },
     nextChapterUrl: function(select, doc, curUrl)
     {
-        if ($(select).children("option:selected").prev().size() != 0)
+        if ($(select).children("option:selected").prev().length != 0)
         {
             return $(select).children("option:selected").prev().val();
         }
@@ -154,7 +154,7 @@ var MangaChapter =
     },
     previousChapterUrl: function(select, doc, curUrl)
     {
-        if ($(select).children("option:selected").next().size() != 0)
+        if ($(select).children("option:selected").next().length != 0)
         {
             return $(select).children("option:selected").next().val();
         }

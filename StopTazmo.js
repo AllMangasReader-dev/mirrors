@@ -36,7 +36,7 @@ var StopTazmo = {
                 t.innerHTML = e;
                 var i = [];
                 $("#content table td:first-child", t).each(function (e) {
-                    if ($("a", $(this).closest("tr")).size() > 0) {
+                    if ($("a", $(this).closest("tr")).length > 0) {
                         i[i.length] = [$(this).text().trim(), $("a", $(this).closest("tr")).last().attr("href")]
                     }
                 });
@@ -84,8 +84,8 @@ var StopTazmo = {
         return $(".navAMR", e)
     },
     isCurrentPageAChapterPage: function (e, t) {
-        if ($("form[name='pageSelector1']", e).size() > 0) {
-            return $("img", $("form[name='pageSelector1'] td", e)[1]).size() > 0
+        if ($("form[name='pageSelector1']", e).length > 0) {
+            return $("img", $("form[name='pageSelector1'] td", e)[1]).length > 0
         } else {
             return false
         }
@@ -104,13 +104,13 @@ var StopTazmo = {
         $(".scansAMR", e).css("padding-top", "10px")
     },
     nextChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").next().size() != 0) {
+        if ($(e).children("option:selected").next().length != 0) {
             return $(e).children("option:selected").next().val()
         }
         return null
     },
     previousChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").prev().size() != 0) {
+        if ($(e).children("option:selected").prev().length != 0) {
             return $(e).children("option:selected").prev().val()
         }
         return null

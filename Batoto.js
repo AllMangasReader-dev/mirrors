@@ -113,7 +113,7 @@ var Batoto = {
     getListImages: function (doc, curUrl) {
         "use strict";
         var res = [];
-        if ($(".moderation_bar:first #page_select option", doc).size() > 0) {
+        if ($(".moderation_bar:first #page_select option", doc).length > 0) {
             $(".moderation_bar:first #page_select option", doc).each(function (index) {
                 var split = $(this).val().split('#')[1].split('_'),
                     id    = split[0],
@@ -141,11 +141,11 @@ var Batoto = {
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
         "use strict";
-        return ($("#comic_page", doc).size() > 0 || $("#full_image", doc).size() > 0 || curUrl.search(/\/reader#/) !== -1);
+        return ($("#comic_page", doc).length > 0 || $("#full_image", doc).length > 0 || curUrl.search(/\/reader#/) !== -1);
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         "use strict";
-        if ($("#full_image", doc).size() > 0) {
+        if ($("#full_image", doc).length > 0) {
             $("#full_image", doc).after($("<div class='amrcontainer'></div>"));
             $("#full_image", doc).remove();
         } else {
@@ -157,7 +157,7 @@ var Batoto = {
         mod_bar.css("margin-bottom", "0px");
         mod_bar.css("padding-top", "0px");
 
-        if ($("#comic_page", doc).parent().size() > 0) {
+        if ($("#comic_page", doc).parent().length > 0) {
             $("#comic_page", doc).parent().remove();
             $("<div class='AMRcomic'></div>").appendTo($(".amrcontainer", doc));
         }
@@ -173,21 +173,21 @@ var Batoto = {
     },
     nextChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().length !== 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().length !== 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;
     },
     getImageFromPageAndWrite: function (urlImg, image, doc, curUrl) {
         "use strict";
-        if ($(".AMRcomic", doc).size() !== 0) {
+        if ($(".AMRcomic", doc).length !== 0) {
             $.ajax({
                 url: urlImg,
                 success: function (objResponse) {

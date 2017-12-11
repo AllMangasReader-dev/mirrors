@@ -65,7 +65,7 @@ var ItaScan = {
             div.innerHTML = objResponse;
             var res = [];
             //console.log($($("#left-menuall .news > div", div)[1]).html());
-            //console.log($("div > a", $($("#left-menuall .news > div", div)[1])).size());
+            //console.log($("div > a", $($("#left-menuall .news > div", div)[1])).length);
               $("div > a", $($("#left-menuall .news > div", div)[1])).each(function(index) {
                 var team = $("a", $(this).parent().next()).text();
                 res[res.length] = [$(this).text().trim() + " (" + team + ")", "http://www.itascan.info" + $(this).attr("href")];
@@ -128,7 +128,7 @@ var ItaScan = {
   },
   //Return true if the current page is a page containing scan.
   isCurrentPageAChapterPage : function(doc, curUrl) {
-    return ($("#wievcap", doc).size() > 0);
+    return ($("#wievcap", doc).length > 0);
   },
   //This method is called before displaying full chapters in the page
   doSomethingBeforeWritingScans : function(doc, curUrl) {
@@ -144,7 +144,7 @@ var ItaScan = {
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().length != 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;
@@ -153,7 +153,7 @@ var ItaScan = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().length != 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;

@@ -104,13 +104,13 @@ var SimpleScans = {
         })
     },
     nextChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").prev().size() !== 0) {
+        if ($(e).children("option:selected").prev().length !== 0) {
             return $(e).children("option:selected").prev().val()
         }
         return null
     },
     previousChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").next().size() !== 0) {
+        if ($(e).children("option:selected").next().length !== 0) {
             return $(e).children("option:selected").next().val()
         }
         return null

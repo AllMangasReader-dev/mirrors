@@ -75,7 +75,7 @@ var MangaReader = {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
-        return ($("img", $("#imgholder", doc)).size() !== 0);
+        return ($("img", $("#imgholder", doc)).length !== 0);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         $("#imgholder", doc).empty();
@@ -91,13 +91,13 @@ var MangaReader = {
         $("#topchapter", doc).css("text-align", "center");
     },
     nextChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().length !== 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().length !== 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;

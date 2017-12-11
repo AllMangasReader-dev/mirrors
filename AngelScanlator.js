@@ -139,7 +139,7 @@ var AngelScanlator =
 	//This function runs in the DOM of the current consulted page.
 	nextChapterUrl: function(select, doc, curUrl)
 	{
-		if ($(select).children("option:selected").prev().size() != 0)
+		if ($(select).children("option:selected").prev().length != 0)
 		{
 			return $(select).children("option:selected").prev().val();
 		}
@@ -150,7 +150,7 @@ var AngelScanlator =
 	//This function runs in the DOM of the current consulted page.
 	previousChapterUrl: function(select, doc, curUrl)
 	{
-		if ($(select).children("option:selected").next().size() != 0)
+		if ($(select).children("option:selected").next().length != 0)
 		{
 			return $(select).children("option:selected").next().val();
 		}
