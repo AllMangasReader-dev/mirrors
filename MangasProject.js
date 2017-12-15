@@ -190,7 +190,7 @@ var MangasProject =
 	//Return true if the current page is a page containing scan.
 	isCurrentPageAChapterPage : function(doc, curUrl)
 	{
-		return ($("div.page", doc).size() > 0);
+		return ($("div.page", doc).length > 0);
 	},
 	//This method is called before displaying full chapters in the page
 	//This function runs in the DOM of the current consulted page.
@@ -207,7 +207,7 @@ var MangasProject =
 	//This function runs in the DOM of the current consulted page.
 	nextChapterUrl: function(select, doc, curUrl)
 	{
-		if ($(select).children("option:selected").prev().size() != 0)
+		if ($(select).children("option:selected").prev().length != 0)
 		{
 			return $(select).children("option:selected").prev().val();
 		}
@@ -218,7 +218,7 @@ var MangasProject =
 	//This function runs in the DOM of the current consulted page.
 	previousChapterUrl: function(select, doc, curUrl)
 	{
-		if ($(select).children("option:selected").next().size() != 0)
+		if ($(select).children("option:selected").next().length != 0)
 		{
 			return $(select).children("option:selected").next().val();
 		}

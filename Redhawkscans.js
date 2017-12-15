@@ -95,7 +95,7 @@ var Redhawkscans = {
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         if (typeof doc.createElement === 'function') {
             var script = doc.createElement('script');
-            script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).unbind('keydown');});";
+            script.innerText = "changePage = function(){}; $(document).ready(function(){$(document).off('keydown');});";
             script.type = 'text/rocketscript';
             doc.body.appendChild(script);
         }
@@ -107,13 +107,13 @@ var Redhawkscans = {
         $(".navAMR").css("text-align", "center");
     },
     nextChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().length !== 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().length !== 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;

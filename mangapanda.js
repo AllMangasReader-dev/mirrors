@@ -98,7 +98,7 @@ var mangapanda = {
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
         "use strict";
-        return $("img", $("#imgholder", doc)).size() !== 0;
+        return $("img", $("#imgholder", doc)).length !== 0;
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         "use strict";
@@ -118,12 +118,12 @@ var mangapanda = {
     },
     nextChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").prev().size() !== 0) return $(select).children("option:selected").prev().val();
+        if ($(select).children("option:selected").prev().length !== 0) return $(select).children("option:selected").prev().val();
         return null;
     },
     previousChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").next().size() !== 0) return $(select).children("option:selected").next().val();
+        if ($(select).children("option:selected").next().length !== 0) return $(select).children("option:selected").next().val();
         return null;
     },
     getImageFromPageAndWrite: function (urlImg, image, doc, curUrl) {

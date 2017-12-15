@@ -80,7 +80,7 @@ var AnimeA = {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
-        return ($("img.scanmr", doc).size() > 0);
+        return ($("img.scanmr", doc).length > 0);
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         $(".hca", doc).remove();
@@ -89,13 +89,13 @@ var AnimeA = {
         $(".h_contentmp", doc).after($("<div>").addClass("navAMR"));
     },
     nextChapterUrl: function (select, doc, curUrl) {
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().length !== 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl: function (select, doc, curUrl) {
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().length !== 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;

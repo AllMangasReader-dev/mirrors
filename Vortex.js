@@ -92,7 +92,7 @@ var Vortex = {
 	doSomethingBeforeWritingScans : function (doc, curUrl) {
 		if (typeof doc.createElement == 'function') {
 			script = doc.createElement('script');
-			script.innerText = "$(document).unbind('keydown');";
+			script.innerText = "$(document).off('keydown');";
 			doc.body.appendChild(script);
 		}
 		$("#page", doc).before($("<div class='navAMR'></div>"));
@@ -107,13 +107,13 @@ var Vortex = {
 		});
 	},
 	nextChapterUrl : function (select, doc, curUrl) {
-		if ($(select).children("option:selected").prev().size() != 0) {
+		if ($(select).children("option:selected").prev().length != 0) {
 			return $(select).children("option:selected").prev().val();
 		}
 		return null;
 	},
 	previousChapterUrl : function (select, doc, curUrl) {
-		if ($(select).children("option:selected").next().size() != 0) {
+		if ($(select).children("option:selected").next().length != 0) {
 			return $(select).children("option:selected").next().val();
 		}
 		return null;

@@ -64,7 +64,7 @@ var Manga24 = {
             var div = document.createElement( "div" );
             div.innerHTML = objResponse;
             var res = [];
-            if ($("#main .chapters li", div).size() > 0) {
+            if ($("#main .chapters li", div).length > 0) {
               $("#main .chapters li", div).each(
                   function(index){
                       res[res.length] = [$($("em", $(this)).contents()[0]).text(), "http://manga24.ru" + $("a", $(this)).attr("href")];
@@ -100,7 +100,7 @@ var Manga24 = {
     var nameurl = mangaURL;
     var curChapName = "";
     var chapurl = "";
-    if ($("#chapters select", doc).size() > 0) {
+    if ($("#chapters select", doc).length > 0) {
       curChapName = $("#chapters select option:selected", doc).text();
       chapurl = mangaURL + $("#chapters select option:selected", doc).val() + "/";
     } else {
@@ -180,7 +180,7 @@ var Manga24 = {
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().length != 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;
@@ -189,7 +189,7 @@ var Manga24 = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().length != 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;
@@ -227,7 +227,7 @@ var Manga24 = {
       name = name.substring(0, pos).trim();
     }
     var select = null;
-    if ($("#chapters select", doc).size() > 0) {
+    if ($("#chapters select", doc).length > 0) {
       $("#chapters select option", doc).each(function(index) {
         $(this).val(mangaURL + $(this).val() + "/");
       });

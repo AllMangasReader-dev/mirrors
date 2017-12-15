@@ -91,7 +91,7 @@ var MangaStream = {
     },
     isCurrentPageAChapterPage: function (doc, curUrl) {
         "use strict";
-        return ($("#manga-page", doc).size() > 0);
+        return ($("#manga-page", doc).length > 0);
     },
     doSomethingBeforeWritingScans: function (doc, curUrl) {
         "use strict";
@@ -105,14 +105,14 @@ var MangaStream = {
     },
     nextChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").prev().size() !== 0) {
+        if ($(select).children("option:selected").prev().length !== 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;
     },
     previousChapterUrl: function (select, doc, curUrl) {
         "use strict";
-        if ($(select).children("option:selected").next().size() !== 0) {
+        if ($(select).children("option:selected").next().length !== 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;

@@ -144,7 +144,7 @@ var Titania = {
   },
   //Return true if the current page is a page containing scan.
   isCurrentPageAChapterPage : function(doc, curUrl) {
-    return ($("#theManga #thePic", doc).size() > 0);
+    return ($("#theManga #thePic", doc).length > 0);
   },
   //This method is called before displaying full chapters in the page
   doSomethingBeforeWritingScans : function(doc, curUrl) {
@@ -162,15 +162,15 @@ var Titania = {
     $("<div class='navAMR'></div>").appendTo($("#amrManga", doc));
     $(".navAMR", doc).css("text-align", "center");
 	script = doc.createElement('script');
-	script.innerText  = "$(document).unbind('keyup');\n";
-	script.innerText += "$(document).unbind('hashchange');";
+	script.innerText  = "$(document).off('keyup');\n";
+	script.innerText += "$(document).off('hashchange');";
 	doc.body.appendChild(script);
   },
   //This method is called to fill the next button's url in the manga site navigation bar
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().length != 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;
@@ -179,7 +179,7 @@ var Titania = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().length != 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;
