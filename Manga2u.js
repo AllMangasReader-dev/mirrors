@@ -86,7 +86,7 @@ var Manga2u = {
    },
    getListImages : function (doc, curUrl) {
       var res = [];
-      var nba = $("h2.wpm_tip.lnk_cnr a", doc).size();
+      var nba = $("h2.wpm_tip.lnk_cnr a", doc).length;
       $("h2.wpm_tip.lnk_cnr a", doc).each(function (index) {
          if (index != nba - 1) {
             res[res.length] = $(this).attr("href");
@@ -102,7 +102,7 @@ var Manga2u = {
       return $(".wpm_nav", doc);
    },
    isCurrentPageAChapterPage : function (doc, curUrl) {
-      return ($("img.manga-page", doc).size() > 0 || $("#chapter-link a").text().toLowerCase().indexOf("begin reading") != -1 || $("h1:first").text().indexOf("Index of") != -1);
+      return ($("img.manga-page", doc).length > 0 || $("#chapter-link a").text().toLowerCase().indexOf("begin reading") != -1 || $("h1:first").text().indexOf("Index of") != -1);
    },
    doSomethingBeforeWritingScans : function (doc, curUrl) {
       $(".wpm_nav:first", doc).next().empty();
@@ -116,13 +116,13 @@ var Manga2u = {
       $(".wrap").css("width", "auto");
    },
    nextChapterUrl : function (select, doc, curUrl) {
-      if ($(select).children("option:selected").prev().size() != 0) {
+      if ($(select).children("option:selected").prev().length != 0) {
          return $(select).children("option:selected").prev().val();
       }
       return null;
    },
    previousChapterUrl : function (select, doc, curUrl) {
-      if ($(select).children("option:selected").next().size() != 0) {
+      if ($(select).children("option:selected").next().length != 0) {
          return $(select).children("option:selected").next().val();
       }
       return null;

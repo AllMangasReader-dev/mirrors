@@ -83,7 +83,7 @@ var MangaLib = {
   },
   isCurrentPageAChapterPage : function (doc, curUrl) {
     "use strict";
-    return ($("#img_curr", doc).size() > 0);
+    return ($("#img_curr", doc).length > 0);
   },
   doSomethingBeforeWritingScans : function (doc, curUrl) {
     "use strict";
@@ -96,14 +96,14 @@ var MangaLib = {
   },
   nextChapterUrl : function (select, doc, curUrl) {
     "use strict";
-    if ($("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).prev().size() !== 0) {
+    if ($("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).prev().length !== 0) {
       return $("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).prev().attr("value");
     }
     return null;
   },
   previousChapterUrl : function (select, doc, curUrl) {
     "use strict";
-    if ($("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).next().size() !== 0) {
+    if ($("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).next().length !== 0) {
       return $("option:selected", $(".reader_top_panel .reader_top_panel_l .ch_chapter", doc)).next().attr("value");
     }
     return null;

@@ -22,7 +22,7 @@ var getListChapsInnerCnt = 0;
           success: function( objResponse ){
             var div = document.createElement( "div" );
             div.innerHTML = objResponse;
-            if ($("div[id='mycontent']", div).size() > 0)
+            if ($("div[id='mycontent']", div).length > 0)
             {
                 // Regular chapters and sub-chapters
                 $("table.snif tr td a", div).each(function(index) {
@@ -41,7 +41,7 @@ var getListChapsInnerCnt = 0;
                   }
                 });
             }
-            else if ($("div[id='content']", div).size() > 0)
+            else if ($("div[id='content']", div).length > 0)
             {
                 // It is a single chapter so we directly have the images here
                 var pos = urlManga.lastIndexOf("/");
@@ -120,10 +120,10 @@ var UnixManga = {
     var currentChapterURL;
     var pos1 = curUrl.indexOf("/onlinereading/");
 //    var pos2 = curUrl.indexOf("/", pos1 + 15);
-//    if (pos2 == -1 && $("div[id='mycontent']", doc).size() != 0)
+//    if (pos2 == -1 && $("div[id='mycontent']", doc).length != 0)
 //      pos2 = curUrl.indexOf(".html", pos1 + 15);
     var pos2 = -1;
-    if ($("div[id='mycontent']", doc).size() == 0)
+    if ($("div[id='mycontent']", doc).length == 0)
       pos2 = curUrl.indexOf("/", pos1 + 15);
     else
       pos2 = curUrl.indexOf(".html", pos1 + 15);
@@ -189,7 +189,7 @@ var UnixManga = {
   },
   //Return true if the current page is a page containing scan.
   isCurrentPageAChapterPage : function(doc, curUrl) {
-    if ($("div[id='content'] a", doc).size() == 0)
+    if ($("div[id='content'] a", doc).length == 0)
       return false;
     return ($("div[id='content'] a", doc).first().attr("href").indexOf("?image") != -1);
   },
@@ -220,7 +220,7 @@ var UnixManga = {
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().length != 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;
@@ -229,7 +229,7 @@ var UnixManga = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().length != 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;

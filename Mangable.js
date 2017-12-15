@@ -133,7 +133,7 @@ var Mangable = {
   },
   //Return true if the current page is a page containing scan.
   isCurrentPageAChapterPage : function(doc, curUrl) {
-    return ($("#image_box #image", doc).size() > 0);
+    return ($("#image_box #image", doc).length > 0);
   },
   //This method is called before displaying full chapters in the page
   doSomethingBeforeWritingScans : function(doc, curUrl) {
@@ -141,7 +141,7 @@ var Mangable = {
     $("#image_box td a", doc).remove();
     $("#image_box td > img", doc).remove();
     $("#chapter_choose_container", doc).remove();
-    console.log("Sizeeee : " + $("#image_box td", doc).size());
+    console.log("Sizeeee : " + $("#image_box td", doc).length);
     $("<div class='scansAMR'></div>").appendTo($("#image_box td", doc));
     $(".scansAMR", doc).after($("<div class='navAMR'></div>"));
     $(".scansAMR", doc).before($("<div class='navAMR'></div>"));
@@ -154,7 +154,7 @@ var Mangable = {
   //The select containing the mangas list next to the button is passed in argument
   nextChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").prev().size() != 0) {
+    if ($(select).children("option:selected").prev().length != 0) {
       return $(select).children("option:selected").prev().val();
     }
     return null;
@@ -163,7 +163,7 @@ var Mangable = {
   //The select containing the mangas list next to the button is passed in argument
   previousChapterUrl : function(select, doc, curUrl) {
     //This function runs in the DOM of the current consulted page.
-    if ($(select).children("option:selected").next().size() != 0) {
+    if ($(select).children("option:selected").next().length != 0) {
       return $(select).children("option:selected").next().val();
     }
     return null;

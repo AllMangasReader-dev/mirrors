@@ -72,7 +72,7 @@ var GoodManga = {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
-        return ($("div#content div#manga_viewer img", doc).size() > 0);
+        return ($("div#content div#manga_viewer img", doc).length > 0);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
         $("#manga_nav_top", doc).remove();
@@ -85,13 +85,13 @@ var GoodManga = {
         $("#manga_viewer", doc).css("padding-top", "10px");
     },
     nextChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").next().size() != 0) {
+        if ($(select).children("option:selected").next().length != 0) {
             return $(select).children("option:selected").next().val();
         }
         return null;
     },
     previousChapterUrl : function (select, doc, curUrl) {
-        if ($(select).children("option:selected").prev().size() != 0) {
+        if ($(select).children("option:selected").prev().length != 0) {
             return $(select).children("option:selected").prev().val();
         }
         return null;

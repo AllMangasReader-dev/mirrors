@@ -18,7 +18,7 @@ var OurManga = {
                 n.innerHTML = e;
                 var r = [];
                 $("div.m_s_title a", n).each(function (e) {
-                    if (e != 0 && $("a", $(this).parent()).size() == 1 && $(this).attr("href") != undefined && $(this).attr("href").trim() != "http://www.ourmanga.com/") {
+                    if (e != 0 && $("a", $(this).parent()).length == 1 && $(this).attr("href") != undefined && $(this).attr("href").trim() != "http://www.ourmanga.com/") {
                         r[r.length] = [$(this).text(), $(this).attr("href")]
                     }
                 });
@@ -88,7 +88,7 @@ var OurManga = {
         return $(".navAMR", e).add($(".inner_heading", e))
     },
     isCurrentPageAChapterPage: function (e, t) {
-        return $(".inner_full_view img", e).size() > 0
+        return $(".inner_full_view img", e).length > 0
     },
     doSomethingBeforeWritingScans: function (e, t) {
         $("#page").css("width", "auto");
@@ -109,13 +109,13 @@ var OurManga = {
         $(".inner_heading", e).css("text-align", "center")
     },
     nextChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").next().size() != 0) {
+        if ($(e).children("option:selected").next().length != 0) {
             return $(e).children("option:selected").next().val()
         }
         return null
     },
     previousChapterUrl: function (e, t, n) {
-        if ($(e).children("option:selected").prev().size() != 0) {
+        if ($(e).children("option:selected").prev().length != 0) {
             return $(e).children("option:selected").prev().val()
         }
         return null
