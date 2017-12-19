@@ -9,7 +9,7 @@ var MangaHere = {
     languages: "en",
     //Return true if the url corresponds to the mirror
     isMe: function (url) {
-        return (url.indexOf("mangahere.co/") != -1);
+        return (url.indexOf("mangahere.cc/") != -1);
     },
     //Return the list of all or part of all mangas from the mirror
     //The search parameter is filled if canListFullMangas is false
@@ -17,7 +17,7 @@ var MangaHere = {
     //This function must call callback("Mirror name", [returned list]);
     getMangaList: function (search, callback) {
         $.ajax({
-            url: "http://www.mangahere.co/search.php?name=" + search,
+            url: "http://www.mangahere.cc/search.php?name=" + search,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Cache-Control", "no-cache");
                 xhr.setRequestHeader("Pragma", "no-cache");
