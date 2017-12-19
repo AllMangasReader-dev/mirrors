@@ -9,7 +9,7 @@ var MangaFox = {
     },
     getMangaList: function(search, callback) {
         "use strict";
-        var urlManga = "http://mangafox.me/search.php?name=" + search +
+        var urlManga = "http://mangafox.la/search.php?name=" + search +
             "&advopts=1";
         $.ajax({
             url: urlManga,
