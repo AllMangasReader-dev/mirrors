@@ -7,7 +7,7 @@ var MangaReader = {
         return (url.indexOf("www.mangareader.net") !== -1);
     },
     getMangaList : function (search, callback) {
-        var urlManga = "http://www.mangareader.net/search/?w=" + search + "&rd=0&status=0&order=0&genre=0000000000000000000000000000000000000&p=0";
+        var urlManga = "https://www.mangareader.net/search/?w=" + search + "&rd=0&status=0&order=0&genre=0000000000000000000000000000000000000&p=0";
         $.ajax({
             url : urlManga,
             beforeSend : function (xhr) {
@@ -19,7 +19,7 @@ var MangaReader = {
                 div.innerHTML = objResponse.replace(/<img/gi, '<noload');
                 var res = [];
                 $(".manga_name a", div).each(function (index) {
-                    res[res.length] = [$(this).text(), "http://www.mangareader.net" + $(this).attr("href")];
+                    res[res.length] = [$(this).text(), "https://www.mangareader.net" + $(this).attr("href")];
                 });
                 callback("Manga Reader", res);
             }
@@ -38,7 +38,7 @@ var MangaReader = {
                 var res = [];
                 var mangaName = $("#mangaproperties h1", div).text().replace("Manga", "").trim();
                 $("#chapterlist #listing tr td:first-child a", div).each(function (index) {
-                    res[res.length] = [$(this).text().replace(mangaName, "").trim(), "http://www.mangareader.net" + $(this).attr("href")];
+                    res[res.length] = [$(this).text().replace(mangaName, "").trim(), "https://www.mangareader.net" + $(this).attr("href")];
                 });
                 res = res.reverse();
                 callback(res, obj);
@@ -47,9 +47,9 @@ var MangaReader = {
     },
     getInformationsFromCurrentPage : function (doc, curUrl, callback) {
         var name = $($("#mangainfo h2.c2 a", doc)[0]).text().replace("Manga", "").trim();
-        var mangaurl = "http://www.mangareader.net" + $($("#mangainfo h2.c2 a", doc)[0]).attr("href");
+        var mangaurl = "https://www.mangareader.net" + $($("#mangainfo h2.c2 a", doc)[0]).attr("href");
         var currentChapter = $("#mangainfo h1", doc).text().replace(name, "").trim();
-        var curChapUrl = "http://www.mangareader.net" + $($("#mangainfo_son a", doc)[0]).attr("href");
+        var curChapUrl = "https://www.mangareader.net" + $($("#mangainfo_son a", doc)[0]).attr("href");
         callback({
             "name" : name,
             "currentChapter" : currentChapter,
@@ -60,7 +60,7 @@ var MangaReader = {
     getListImages : function (doc, curUrl) {
         res = [];
         $("#pageMenu option", doc).each(function (index) {
-            res[res.length] = "http://www.mangareader.net" + $(this).val();
+            res[res.length] = "https://www.mangareader.net" + $(this).val();
         });
         return res;
     },
@@ -75,6 +75,7 @@ var MangaReader = {
         return $(".navAMR", doc);
     },
     isCurrentPageAChapterPage : function (doc, curUrl) {
+        
         return ($("img", $("#imgholder", doc)).size() !== 0);
     },
     doSomethingBeforeWritingScans : function (doc, curUrl) {
